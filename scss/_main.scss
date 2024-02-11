@@ -1,0 +1,37 @@
+main {
+    @include flex-fd;
+    width: $block-width;
+    height: auto;
+}
+
+.book-info-wrapper {
+    width: 100%;
+    background-color: $color-c;
+    padding: $padding-container;
+}
+
+.book-buy-wrapper {
+    @include flex-fd;
+    width: 100%;    
+    padding: $padding-container;
+    background-color: #fad8a9ec;
+}
+
+.book-buy__button {
+    font-size: 1.5vw;
+    background-color: $color-c;
+    padding: $padding;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all .5s;
+
+    &:hover {
+        background-color: $color-d;
+    }
+}
+
+.book-characters-wrapper {
+    width: 100%;
+    height: 370px;
+    background-color: $color-d;
+}

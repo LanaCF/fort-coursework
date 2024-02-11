@@ -1,0 +1,101 @@
+//BASIC =====================================================================================================
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    @include font-montserrat-r;
+    @include hyphens;
+    color: $color-b;
+    font-size: $font-size-main;
+    background-color: $color-b;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: $color-b;
+}
+
+h1 {
+    @include font-ttnormspro-b;
+    font-size: 7vw;
+    text-align: center;
+    padding-bottom: $padding-bottom;
+    position: absolute;
+    top: 50px;
+    left: 130px;
+}
+
+h2 {
+    text-align: center;
+    padding-bottom: $padding-bottom;
+}
+
+h3 {
+    text-align: center;
+    padding-bottom: $padding-bottom;
+}
+
+//ADDITIONAL =====================================================================================================
+
+.text-bold {
+    font-weight: bold;
+}
+
+.text-italic {
+    font-style: italic;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-red {
+    color: red;
+}
+
+.text-white {
+    color: white;
+}
+
+//SCROLL =====================================================================================================
+
+.scroll-top {
+    @include flex-jc;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: rgba(240, 232, 88, 0.555);
+    cursor: pointer;
+    position: fixed;
+    top: 50px;
+    right: 5px;
+    z-index: 150;
+}
+
+.bottomToTop {
+    width: 0;
+    height: 0;
+    margin: 17px 12px 15px;
+    border-top: 0 solid transparent;
+    border-right: 12px solid transparent;
+    border-bottom: 12px solid $color-b;
+    border-left: 12px solid transparent;
+    cursor: pointer;
+}
+
+//PAGE =====================================================================================================
+
+.container {
+    @include flex-fd(space-between, center);
+    // width: $container-width;
+    margin: 0 auto;
+}
+
