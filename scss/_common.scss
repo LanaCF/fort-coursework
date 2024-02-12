@@ -40,7 +40,7 @@ h2 {
 
 h3 {
     text-align: center;
-    padding-bottom: $padding-bottom;
+    padding-bottom: $padding-bottom-small;
 }
 
 //ADDITIONAL =====================================================================================================
@@ -73,10 +73,11 @@ h3 {
     height: 50px;
     border-radius: 50%;
     background-color: rgba(240, 232, 88, 0.555);
+    padding-bottom: 7px;
     cursor: pointer;
     position: fixed;
     top: 50px;
-    right: 5px;
+    right: 15px;
     z-index: 150;
 }
 
@@ -87,6 +88,31 @@ h3 {
     border-top: 0 solid transparent;
     border-right: 12px solid transparent;
     border-bottom: 12px solid $color-b;
+    border-left: 12px solid transparent;
+    cursor: pointer;
+}
+
+.scroll-bottom {
+    @include flex-jc;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: rgba(240, 232, 88, 0.555);
+    padding-top: 5px;
+    cursor: pointer;
+    position: fixed;
+    bottom: 100px;
+    right: 15px;
+    z-index: 150;
+}
+
+.bottomToBottom {
+    width: 0;
+    height: 0;
+    margin: 17px 12px 15px;
+    border-top: 12px solid $color-b;
+    border-right: 12px solid transparent;
+    border-bottom: 0 solid transparent;
     border-left: 12px solid transparent;
     cursor: pointer;
 }

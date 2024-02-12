@@ -4,17 +4,43 @@ main {
     height: auto;
 }
 
+.book-info {
+    @include flex-jc;
+
+    &__description {
+        margin-bottom: 25px;
+    }
+}
+
+.book-poster {
+    width: 270px;
+    height: 350px;
+    margin: 0 25px 25px 0;
+    background-image: url('/img/1.jpg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    cursor: pointer;
+    transition: .3s;
+
+    &:hover {
+        background-image: url('/img/2.jpg');
+    }
+}
+
 .book-info-wrapper {
     width: 100%;
     background-color: $color-c;
     padding: $padding-container;
 }
 
+//BUY =============================================
+
 .book-buy-wrapper {
     @include flex-fd;
     width: 100%;    
     padding: $padding-container;
-    background-color: #fad8a9ec;
+    background-color: $color-g;
 }
 
 .book-buy__button {
@@ -30,8 +56,134 @@ main {
     }
 }
 
+//CHARACTERS =============================================
+
 .book-characters-wrapper {
     width: 100%;
-    height: 370px;
+    height: auto;
     background-color: $color-d;
+    padding: $padding-container;
+}
+
+.book-characters {
+    &__slide-block {
+        @include flex-jc;
+    }
+
+    &__slider {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    &__box {
+        margin: 15px 15px;
+    }
+
+    &__img {
+        width: 170px;
+        cursor: pointer;
+        transition: .3s;
+
+        &:hover {
+            transform: scale(1.2);
+        }
+    }
+}
+
+//READ =============================================
+
+.book-read-wrapper {
+    width: 100%;
+    height: auto;
+    background-color: $color-g;
+    padding: $padding-container;
+}
+
+.read-book-block {
+    @include flex-fd;
+    align-items: center;
+    width: 100%;
+    height: auto;
+}
+
+//COMMENTS =============================================
+
+.book-comments-wrapper {
+    width: 100%;
+    height: auto;
+    background-color: $color-c;
+    padding: $padding-container;
+}
+
+.book-comments-block {
+    width: 100%;
+    height: 550px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+::-webkit-scrollbar {
+    width: 25px;
+}
+
+::-webkit-scrollbar-track {
+    background: $color-g; // Колір фону скролбару
+}
+
+::-webkit-scrollbar-thumb {
+    background: $color-b; // Колір скролбару
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+.book-comment-box {
+    background-color: $color-h;
+    border-radius: 15px;
+    padding: 55px;
+    margin: 35px;
+}
+
+.user-name {
+    margin-bottom: 25px;
+}
+
+.book-comments-form {
+    @include flex-fd;
+    margin: 50px;
+}
+
+.input-label {
+    @include flex-fd;
+    margin-bottom: 10px;
+}
+
+.input-name {
+    @include font-montserrat-r;
+    width: 500px;
+    height: 45px;
+    padding: 10px;
+    background-color: $color-g;
+    border: 1px solid $color-b;
+}
+
+.comment-form {
+    @include font-montserrat-r;
+    width: 500px;
+    height: 270px;
+    padding: 10px;
+    background-color: $color-g;
+    border: 1px solid $color-b;
+}
+
+.comment-button-send {
+    margin-top: 25px;
+    padding: 10px 25px;
+    border-radius: 5px;
+    border: 1px solid $color-b;
+    background-color: $color-i;
+    color: $color-a;
+    cursor: pointer;
 }

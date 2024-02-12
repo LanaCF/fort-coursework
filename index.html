@@ -15,6 +15,10 @@
     <div id="scrollToTopBtn" class="scroll-top">
         <div class="bottomToTop"></div>
     </div>
+    
+    <div id="scrollToBottomBtn" class="scroll-bottom">
+        <div class="bottomToBottom"></div>
+    </div>
 
     <header class="header">
         <h1>
@@ -40,117 +44,309 @@
                 </li>
 
                 <li class="menu-item">
-                    <a href="#about-book" class="menu-item__link">
+                    <a href="#buy-book" class="menu-item__link">
                         КУПИТИ ЕЛЕКТРОННУ КНИГУ
                     </a>
                 </li>
 
                 <li class="menu-item">
-                    <a href="#about-book" class="menu-item__link">
+                    <a href="#characters-book" class="menu-item__link">
                         ПЕРСОНАЖІ
                     </a>
                 </li>
                 
                 <li class="menu-item">
-                    <a href="#about-book" class="menu-item__link">
+                    <a href="#read-book" class="menu-item__link">
                         ЧИТАТИ ФРАГМЕНТ КНИГИ
                     </a>
                 </li>
                 
                 <li class="menu-item">
-                    <a href="#about-book" class="menu-item__link">
+                    <a href="#comments-book" class="menu-item__link">
                         ВІДГУКИ
                     </a>
                 </li>
             </ul>
         </div>
 
-        <main class="">
+        <main class="main">
             <div class="book-info-wrapper">
                 <h2 id="about-book">
                     КНИГА «ФОРТ»
                 </h2>
 
-                <p>
-                    <span class="text-bold">
-                        Автор:
-                    </span>
-                    U.B.
-                </p>
+                <div class="book-info">
+                    <div class="book-poster"></div>
 
-                <p>
-                    <span class="text-bold">
-                        Жанр:
-                    </span>
-                    детектив, психологія, соціальна проблема, драма, мелодрама, гумор, утопія
-                </p>
-                
-                <p>
-                    <span class="text-bold">
-                        Мова:
-                    </span>
-                    українська
-                </p>
+                    <div class="book-info-block">
+                        <p class="book-info__description">
+                            <span class="text-bold">
+                                Автор:
+                            </span>
+                            U.B.
+                        </p>
+    
+                        <p class="book-info__description">
+                            <span class="text-bold">
+                                Жанр:
+                            </span>
+                            детектив, психологія, соціальна проблема, драма, мелодрама, гумор, утопія
+                        </p>
+                        
+                        <p class="book-info__description">
+                            <span class="text-bold">
+                                Мова:
+                            </span>
+                            українська
+                        </p>
+        
+                        <p class="book-info__description">
+                            <span class="text-bold">
+                                Рік початку написання:
+                            </span>
+                            2010
+                        </p>
+                    </div>
+                </div>
 
-                <p>
-                    <span class="text-bold">
-                        Рік початку написання:
-                    </span>
-                    2010
-                </p>
-
-                <h3>
-                    АНОТАЦІЯ
-                </h3>
-
-                <p class="text-italic">
-                    «Тебе часто будуть зраджувати, Джоне. І знаєш чому?
+                <div class="book-info-block__annotation">
+                    <h3>
+                        АНОТАЦІЯ
+                    </h3>
+    
+                    <p class="text-italic">
+                        «Тебе часто будуть зраджувати, Джоне. І знаєш чому?
+                        <br>
+                        Бо тобі так легко заздрити...»
+                    </p>
                     <br>
-                    Бо тобі так легко заздрити...»
-                </p>
-                <br>
-                <p>
-                    Тек Джон-Рік народився у сім’ї, де панували віра, любов і затишок. 
-                    Та в одну мить рука темряви зруйнувала все, і він став в’язнем холодних стін жорстокості, 
-                    що поступово зруйнувала долі дорогих йому людей. Джона позбавили можливості обирати власний шлях. 
-                    Його змусили ще в підлітковому віці опуститися на дно цього світу. 
-                    Життя стало суцільним болем без права на свободу та постійною боротьбою за можливість залишатися 
-                    людиною серед звірів.
-                    <br>
-                    <br>
-                    Із нього хотіли зробити машину ліквідації. І він нею став. 
-                    Та прийшов день, коли Джон змінив правила цієї гри й ціль для знищення почав обирати сам.
-
-                </p>
+                    <p>
+                        Тек Джон-Рік народився у сім’ї, де панували віра, любов і затишок. 
+                        Та в одну мить рука темряви зруйнувала все, і він став в’язнем холодних стін жорстокості, 
+                        що поступово зруйнувала долі дорогих йому людей. Джона позбавили можливості обирати власний шлях. 
+                        Його змусили ще в підлітковому віці опуститися на дно цього світу. 
+                        Життя стало суцільним болем без права на свободу та постійною боротьбою за можливість залишатися 
+                        людиною серед звірів.
+                        <br>
+                        <br>
+                        Із нього хотіли зробити машину ліквідації. І він нею став. 
+                        Та прийшов день, коли Джон змінив правила цієї гри й ціль для знищення почав обирати сам.
+    
+                    </p>
+                </div>
             </div>
             
-            <div class="book-buy-wrapper">
+            <div class="book-buy-wrapper" id="buy-book">
                 <button class="book-buy__button">
                     КУПИТИ ЕЛЕКТРОННУ КНИГУ «ФОРТ»
                 </button>
-            </div>
 
-            <div class="book-characters-wrapper">
-                <div class="book-characters-box">
-                    <img src="" alt="">
-                    Блок персонажів
+                <button class="book-buy__button">
+                    КУПИТИ ДРУКОВАНУ КНИГУ «ФОРТ»
+                </button>
+
+                <div class="book-quantity-sold-block">
+                    <div class="book-quantity-sold ebook">
+                        Кількість продано електронних- лічильник
+                    </div>
+
+                    <div class="book-quantity-sold printed">
+                        Кількість продано друкованих - лічильник
+                    </div>
                 </div>
             </div>
 
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
+            <div class="book-characters-wrapper">
+                <h2 id="characters-book">
+                    ПЕРСОНАЖІ
+                </h2>
+
+                <div class="book-characters__slide-block">
+                    <div class="book-characters__slider">
+                        <div class="book-characters__box">
+                            <img src="img/1.jpg" alt="" class="book-characters__img">
+                        </div>
+                
+                        <div class="book-characters__box">
+                            <img src="img/1.jpg" alt="" class="book-characters__img">
+                        </div>
+                
+                        <div class="book-characters__box">
+                            <img src="img/1.jpg" alt="" class="book-characters__img">
+                        </div>
+                
+                        <div class="book-characters__box">
+                            <img src="img/1.jpg" alt="" class="book-characters__img">
+                        </div>
+                
+                        <div class="book-characters__box">
+                            <img src="img/1.jpg" alt="" class="book-characters__img">
+                        </div>
+
+                        <div class="book-characters__box">
+                            <img src="img/1.jpg" alt="" class="book-characters__img">
+                        </div>
+                
+                        <div class="book-characters__box">
+                            <img src="img/1.jpg" alt="" class="book-characters__img">
+                        </div>
+                
+                        <div class="book-characters__box">
+                            <img src="img/1.jpg" alt="" class="book-characters__img">
+                        </div>
+                
+                        <div class="book-characters__box">
+                            <img src="img/1.jpg" alt="" class="book-characters__img">
+                        </div>
+                
+                        <div class="book-characters__box">
+                            <img src="img/1.jpg" alt="" class="book-characters__img">
+                        </div>
+
+                        <div class="book-characters__box">
+                            <img src="img/1.jpg" alt="" class="book-characters__img">
+                        </div>
+                
+                        <div class="book-characters__box">
+                            <img src="img/1.jpg" alt="" class="book-characters__img">
+                        </div>
+                
+                        <div class="book-characters__box">
+                            <img src="img/1.jpg" alt="" class="book-characters__img">
+                        </div>
+                
+                        <div class="book-characters__box">
+                            <img src="img/1.jpg" alt="" class="book-characters__img">
+                        </div>
+                
+                        <div class="book-characters__box">
+                            <img src="img/1.jpg" alt="" class="book-characters__img">
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+
+            <div class="book-read-wrapper">
+                <h2 id="read-book">
+                    ГЛАВИ ДЛЯ ОЗНАЙОМЛЕННЯ
+                </h2>
+
+                <div class="read-book-block">
+                    <ul>
+                        <li>
+                            <a href="#">
+                                Пролог
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                Розмитий горизонт
+                            </a>
+                        </li>
+    
+                        <li>
+                            <a href="#">
+                                Нічні вулиці Шанхаю
+                            </a>
+                        </li>
+    
+                        <li>
+                            <a href="#">
+                                Народження гіганта
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                «Триумвірат»
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="book-comments-wrapper">
+                <h2 id="comments-book">
+                    ВІДГУКИ
+                </h2>
+                
+                <div class="book-comments-block">
+                    <div class="book-comment-box">
+                        <p class="user-name text-bold">
+                            LanaCF
+                        </p>
+
+                        <p class="user-comment">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis maiores, earum ratione debitis temporibus autem laborum doloribus cupiditate similique at rem voluptatem molestias odio amet labore nostrum unde quis ipsam, nihil quibusdam distinctio nisi. Illo minima veritatis amet obcaecati placeat. Ratione placeat beatae, quae cum alias at ea. Ipsam, eveniet.
+                        </p>
+                    </div>
+
+                    <div class="book-comment-box">
+                        <p class="user-name text-bold">
+                            Jo
+                        </p>
+
+                        <p class="user-comment">
+                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Facere, eaque!
+                        </p>
+                    </div>
+
+                    <div class="book-comment-box">
+                        <p class="user-name text-bold">
+                            Nana
+                        </p>
+
+                        <p class="user-comment">
+                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Libero rerum atque quibusdam, suscipit minus illum qui est eligendi. Nisi obcaecati, officiis libero ipsam, nihil mollitia rerum temporibus tempora corrupti ullam esse? Molestiae ipsum, nulla eum a delectus aspernatur! Harum illo nam debitis. Libero obcaecati, dolorem est molestiae, eveniet quia sequi exercitationem omnis labore dicta consequuntur perferendis ut adipisci explicabo illum voluptate rerum, quidem ullam. Sed sapiente nulla reprehenderit cupiditate corrupti.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="book-comments-form">
+                    <h3>
+                        ЗАЛИШИТИ КОМЕНТАР
+                    </h3>
+
+                    <label for="name" class="input-label">
+                        <input type="text" id="name" class="input-name" placeholder="Ваше ім'я">
+                    </label>
+
+                    <textarea class="comment-form" name="comment" placeholder="Напишіть коментар" id="1"></textarea>
+
+                    <button type="submit" class="comment-button-send">
+                        ВІДПРАВИТИ
+                    </button>
+                </div>
+            </div>
         </main>
 
-        <footer class="">
+        <footer class="footer">
+            <div class="footer-contacts-wrapper">
+                <p class="footer-contacts-text text-center">
+                    КОНТАКТИ
+                </p>
 
+                <p class="footer-contacts-text text-center">
+                    Телефон: +38 (050) 357-357-57-37
+                </p>
+
+                <p class="footer-contacts-text text-center">
+                    E-mail: fort-book@gmail.com
+                </p>
+
+                <p class="footer-contacts-text text-center">
+                    &copy; ClubFate
+                </p>
+            </div>
         </footer>
     </div>
 
 
+    <script src="./js/modalWindow.js"></script>
+    <script src="./js/scroll.js"></script>
     <script src="./js/wow.min.js"></script>
-    <script src="./js/index.js" type="module"></script>
+    <script src="./js/index.js"></script>
     
     <script>
       new WOW().init();
