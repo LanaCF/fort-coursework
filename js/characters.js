@@ -47,7 +47,7 @@ function renderCharactersList(info) {
 }
 
 function renderInfoBlock(postInfo) {
-    infoWindow = new ModalWindow({ w: 500, h: 300 }, { top: 200, left: 500 }, postInfo.id, postInfo.img, postInfo.name, postInfo.birthday, postInfo.nationality, postInfo.profession, postInfo.info);
+    infoWindow = new ModalWindow({ w: 80, h: 500 }, { top: 10, left: 10 }, postInfo.id, postInfo.img, postInfo.name, postInfo.birthday, postInfo.nationality, postInfo.profession, postInfo.info);
     infoWindow.create();
     console.log('test2', postInfo.id);
 }

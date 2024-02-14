@@ -43,7 +43,7 @@ function renderChaptersList(info) {
 }
 
 function renderChapterBlock(postChapter) {
-    infoWindow = new ModalWindow({ w: 500, h: 300 }, { top: 200, left: 500 }, postChapter.id, postChapter.title, postChapter.text);
+    infoWindow = new ChapterModal({ w: 75, h: 585 }, { top: 10, left: 10 }, postChapter.id, postChapter.title, postChapter.text);
     infoWindow.create();
     console.log('test3', postChapter.id);
 }

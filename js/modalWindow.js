@@ -30,10 +30,10 @@ class MyWindow {
             z-index: 20000;
             background-color: #bbcedf;
             padding: 35px;
-            width: ${this.size.w}px;
+            max-width: ${this.size.w}%;
             height: ${this.size.h}px;
-            ${posOpt[0]}: ${this.position[posOpt[0]]}px;
-            ${posOpt[1]}: ${this.position[posOpt[1]]}px;
+            ${posOpt[0]}: ${this.position[posOpt[0]]}%;
+            ${posOpt[1]}: ${this.position[posOpt[1]]}%;
             `;
 
         infoBox.className = 'modal-window-info-block';
@@ -114,6 +114,63 @@ class ModalWindow extends MyWindow {
             myWindow.remove();
             overlay.remove();
         }
+
+        return myWindow;
+    }
+}
+   
+// ChapterModal ----------------------------------------------------------------------
+ 
+class ChapterModal extends MyWindow {
+    constructor(size, position, id, title, text) {
+        super(size, position);
+        this.id = id;
+        this.title = title;
+        this.text = text;
+    }
+
+    create() {
+        const myWindow = super.create();
+        const { id, title, text } = this;
+
+        const infoBox = myWindow.querySelector('.modal-window-info-block');
+
+        infoBox.innerHTML = `
+            <h2 class="info-style-title"><b>${title}</b></h2>
+            <p>${text}</p>
+        `;
+
+        const overlay = document.createElement('div');
+        overlay.style.cssText = `
+            position: fixed;
+            z-index: 10000;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, .7);
+            overflow: hidden;
+        `;
+        document.body.append(overlay);
+
+        const btnClose = document.createElement('img');
+        btnClose.src = "img/close2.png";
+        btnClose.alt = "";
+        btnClose.className = 'btn-close';
+        btnClose.style.cssText = `
+            width: 30px;
+            margin: 25px;
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            right: 0;
+        `;
+        overlay.append(btnClose);
+
+        btnClose.onclick = () => {
+            myWindow.remove();
+            overlay.remove();
+        };
 
         return myWindow;
     }

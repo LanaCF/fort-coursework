@@ -87,6 +87,10 @@ main {
     }
 }
 
+.modal-window-info-block {
+    @include flex-jc;
+}
+
 .card {
     width: 222px;
     height: 250px;
@@ -99,7 +103,7 @@ main {
     }
   
     &__img-mod-wind {
-      width: 300px;
+      width: 17vw;
       margin-bottom: 25px;
     }
   

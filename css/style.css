@@ -404,6 +404,18 @@ main {
           transform: scale(1.2);
 }
 
+.modal-window-info-block {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
 .card {
   width: 222px;
   height: 250px;
@@ -415,7 +427,7 @@ main {
   width: 100%;
 }
 .card__img-mod-wind {
-  width: 300px;
+  width: 17vw;
   margin-bottom: 25px;
 }
 .card__title-box {
