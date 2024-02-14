@@ -3,28 +3,25 @@ let infoWindow;
 // MyWindow ----------------------------------------------------------------------
 
 class MyWindow {
-    constructor(size, position, postInfo) {
+    constructor(size, position, id, img, name, birthday, nationality, profession, info, title, text ) {
       this.size = size;
       this.position = position;
-      this.url = `https://starwars-visualguide.com/assets/img/vehicles/${postInfo.url.split('/').slice(-2)[0]}.jpg`;
-      this.name = postInfo.name; 
-      this.model = postInfo.model; 
-      this.manufacturer = postInfo.manufacturer; 
-      this.vehicle_class = postInfo.vehicle_class; 
-      this.cost_in_credits = postInfo.cost_in_credits; 
-      this.max_atmosphering_speed = postInfo.max_atmosphering_speed; 
-      this.length = postInfo.length; 
-      this.cargo_capacity = postInfo.cargo_capacity; 
-      this.crew = postInfo.crew; 
-      this.passengers = postInfo.passengers;
+
+      this.id = id;
+      this.img = img;
+      this.name = name;
+      this.birthday = birthday;
+      this.nationality = nationality;
+      this.profession = profession;
+      this.info = info;
+
+      this.title = title;
+      this.text = text; 
     }
   
     create() {
         const myWindow = doc.createElement('div');
         const infoBox = doc.createElement('div');
-
-        console.log('Creating modal window');
-
         const posOpt = Object.keys(this.position);
 
         myWindow.style.cssText = 
@@ -55,20 +52,15 @@ class MyWindow {
         infoBox.innerHTML = 
             `
             <div class="modulWind">
-                <img src="${this.url}" alt="" class="card__img-mod-wind" onerror="this.onerror=null;this.src='img/image_not_found.jpg';">
+                <img src="${ this.img }" alt="" class="card__img-mod-wind" onerror="this.onerror=null;this.src='img/image_not_found.jpg';">
             </div>
 
             <div class="modulWind">
                 <h2 class="info-style-title"><b>${this.name}</b></h2>
-                <p class="info-style"><b>Model:</b> ${this.model}</p>
-                <p class="info-style"><b>Manufacturer:</b> ${this.manufacturer}</p>
-                <p class="info-style"><b>Class:</b> ${this.vehicle_class}</p>
-                <p class="info-style"><b>Cost:</b> ${this.cost_in_credits} credits</p>
-                <p class="info-style"><b>Speed:</b> ${this.max_atmosphering_speed}km/h</p>
-                <p class="info-style"><b>Length:</b> ${this.length}m</p>
-                <p class="info-style"><b>Cargo Capacity:</b> ${this.cargo_capacity} tons</p>
-                <p class="info-style"><b>Mimimum Crew:</b> ${this.crew}</p>
-                <p class="info-style"><b>Passengers:</b> ${this.passengers}</p>
+                <p class="info-style"><b>Дата народження:</b> ${this.birthday}</p>
+                <p class="info-style"><b>Національність:</b> ${this.nationality}</p>
+                <p class="info-style"><b>Професія:</b> ${this.profession}</p>
+                <p class="info-style"><b>Інформація:</b> ${this.info}</p>
             </div>
             `;
 

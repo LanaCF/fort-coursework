@@ -42,7 +42,7 @@
 @font-face {
     font-family: 'Montserrat';
     src: 
-        url('../fonts/Montserrat/Montserrat_Regular_400.eot') format('opentype'),
+        // url('../fonts/Montserrat/Montserrat_Regular_400.eot') format('opentype'),
         url('../fonts/Montserrat/Montserrat_Regular_400.ttf') format('truetype'),
         url('../fonts/Montserrat/Montserrat_Regular_400.woff') format('woff'),
         url('../fonts/Montserrat/Montserrat_Regular_400.woff2') format('woff2');
@@ -53,7 +53,7 @@
 @font-face {
     font-family: 'Montserrat';
     src: 
-        url('../fonts/Montserrat/Montserrat_Bold_700.eot') format('opentype'),
+        // url('../fonts/Montserrat/Montserrat_Bold_700.eot') format('opentype'),
         url('../fonts/Montserrat/Montserrat_Bold_700.ttf') format('truetype'),
         url('../fonts/Montserrat/Montserrat_Bold_700.woff') format('woff'),
         url('../fonts/Montserrat/Montserrat_Bold_700.woff2') format('woff2');
@@ -167,9 +167,9 @@
 }
 
 @font-face {
-    font-family: fac;
+    font-family: 'TTNormsPro';
     src:
-        url('../fonts/TTNormsPro/TTNormsPro-Bold.eot') format('opentype'),
+        // url('../fonts/TTNormsPro/TTNormsPro-Bold.eot') format('opentype'),
         url('../fonts/TTNormsPro/TTNormsPro-Bold.ttf') format('truetype'),
         url('../fonts/TTNormsPro/TTNormsPro-Bold.woff') format('woff'),
         url('../fonts/TTNormsPro/TTNormsPro-Bold.woff2') format('woff2');

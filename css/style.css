@@ -170,13 +170,13 @@ h3 {
 }
 @font-face {
   font-family: "Montserrat";
-  src: url("../fonts/Montserrat/Montserrat_Regular_400.eot") format("opentype"), url("../fonts/Montserrat/Montserrat_Regular_400.ttf") format("truetype"), url("../fonts/Montserrat/Montserrat_Regular_400.woff") format("woff"), url("../fonts/Montserrat/Montserrat_Regular_400.woff2") format("woff2");
+  src: url("../fonts/Montserrat/Montserrat_Regular_400.ttf") format("truetype"), url("../fonts/Montserrat/Montserrat_Regular_400.woff") format("woff"), url("../fonts/Montserrat/Montserrat_Regular_400.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
 }
 @font-face {
   font-family: "Montserrat";
-  src: url("../fonts/Montserrat/Montserrat_Bold_700.eot") format("opentype"), url("../fonts/Montserrat/Montserrat_Bold_700.ttf") format("truetype"), url("../fonts/Montserrat/Montserrat_Bold_700.woff") format("woff"), url("../fonts/Montserrat/Montserrat_Bold_700.woff2") format("woff2");
+  src: url("../fonts/Montserrat/Montserrat_Bold_700.ttf") format("truetype"), url("../fonts/Montserrat/Montserrat_Bold_700.woff") format("woff"), url("../fonts/Montserrat/Montserrat_Bold_700.woff2") format("woff2");
   font-weight: 700;
   font-style: normal;
 }
@@ -235,8 +235,8 @@ h3 {
   font-style: normal;
 }
 @font-face {
-  font-family: fac;
-  src: url("../fonts/TTNormsPro/TTNormsPro-Bold.eot") format("opentype"), url("../fonts/TTNormsPro/TTNormsPro-Bold.ttf") format("truetype"), url("../fonts/TTNormsPro/TTNormsPro-Bold.woff") format("woff"), url("../fonts/TTNormsPro/TTNormsPro-Bold.woff2") format("woff2");
+  font-family: "TTNormsPro";
+  src: url("../fonts/TTNormsPro/TTNormsPro-Bold.ttf") format("truetype"), url("../fonts/TTNormsPro/TTNormsPro-Bold.woff") format("woff"), url("../fonts/TTNormsPro/TTNormsPro-Bold.woff2") format("woff2");
   font-weight: 700;
   font-style: normal;
 }
@@ -379,18 +379,7 @@ main {
   padding: 35px 45px;
 }
 
-.book-characters__slide-block {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-.book-characters__slider {
+.book-characters__block {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -413,6 +402,45 @@ main {
   -webkit-transform: scale(1.2);
       -ms-transform: scale(1.2);
           transform: scale(1.2);
+}
+
+.card {
+  width: 222px;
+  height: 250px;
+  background-color: rgba(240, 248, 255, 0.73);
+  margin: 0 15px 15px 0;
+  cursor: pointer;
+}
+.card__img {
+  width: 100%;
+}
+.card__img-mod-wind {
+  width: 300px;
+  margin-bottom: 25px;
+}
+.card__title-box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100%;
+  height: 100px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  padding: 10px;
+  overflow: hidden;
+}
+.card__title {
+  color: rgb(49, 49, 49);
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+.info-style-title {
+  margin-bottom: 25px;
 }
 
 .book-read-wrapper {
