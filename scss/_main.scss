@@ -147,6 +147,7 @@ main {
 //COMMENTS =============================================
 
 .book-comments-wrapper {
+    @include flex-fd;
     width: 100%;
     height: auto;
     background-color: $color-c;
@@ -189,11 +190,11 @@ main {
 
 .book-comments-form {
     @include flex-fd;
-    margin: 50px;
+    margin: 50px 0 5px;
 }
 
 .input-label {
-    @include flex-fd;
+    @include flex-fd (center, start);
     margin-bottom: 10px;
 }
 
@@ -223,4 +224,17 @@ main {
     background-color: $color-i;
     color: $color-a;
     cursor: pointer;
+}
+
+.error-comment-box {
+    @include flex-jc(flex-start, center);
+    width: 500px;
+}
+
+.warning {
+    display: none;
+    color: rgb(217, 25, 25);
+    font-weight: bold;
+    text-align: left;
+    margin-bottom: 15px;
 }
