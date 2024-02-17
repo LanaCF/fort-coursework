@@ -13,11 +13,11 @@ main {
 }
 
 .book-poster {
-    width: 270px;
+    width: 350px;
     height: 350px;
     margin: 0 25px 25px 0;
     background-image: url('/img/1.jpg');
-    background-size: contain;
+    background-size: cover;
     background-repeat: no-repeat;
     overflow: hidden;
     cursor: pointer;
@@ -43,17 +43,55 @@ main {
     background-color: $color-g;
 }
 
-.book-buy__button {
-    font-size: 1.5vw;
-    background-color: $color-c;
-    padding: $padding;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: all .5s;
+.book_type_selection {
+    margin-bottom: 25px;
+}
+
+.book-type-choice {
+    appearance: none; // hide the default style - сховати стиль по замовчуванню
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    background-color: $color-a;
+    border: 2px solid $color-a;
+    vertical-align: middle;
+    margin: 0 15px 15px;
+}
+
+.book_type_selection input[type="radio"]:checked {
+    background-color: $color-b;
+    border-color: $color-a;
+}
+
+.book-buy {
+    &__block {
+        @include flex-jc;
+    }
+
+    &__box {
+        border: 3px solid $color-b;
+        border-radius: 15px;
+        padding: $padding;
+    }
+
+    &__button {
+        font-size: 1.5vw;
+        background-color: $color-c;
+        padding: $padding;
+        margin: 0 15px 35px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: all .5s;
+    }
 
     &:hover {
         background-color: $color-d;
     }
+}
+
+.book-quantity-sold-block {
+    @include flex-jc;
+    margin-top: 50px;
 }
 
 //CHARACTERS =============================================
@@ -146,21 +184,6 @@ main {
 
 //COMMENTS =============================================
 
-.book-comments-wrapper {
-    @include flex-fd;
-    width: 100%;
-    height: auto;
-    background-color: $color-c;
-    padding: $padding-container;
-}
-
-.book-comments-block {
-    width: 100%;
-    height: 550px;
-    overflow-x: hidden;
-    overflow-y: scroll;
-}
-
 ::-webkit-scrollbar {
     width: 25px;
 }
@@ -175,6 +198,21 @@ main {
 
 ::-webkit-scrollbar-thumb:hover {
     background: #555;
+}
+
+.book-comments-wrapper {
+    @include flex-fd;
+    width: 100%;
+    height: auto;
+    background-color: $color-c;
+    padding: $padding-container;
+}
+
+.book-comments-block {
+    width: 100%;
+    height: 550px;
+    overflow-x: hidden;
+    overflow-y: scroll;
 }
 
 .book-comment-box {
@@ -193,9 +231,17 @@ main {
     margin: 50px 0 5px;
 }
 
-.input-label {
-    @include flex-fd (center, start);
+.comment-form {
+    @include flex-fd;
+}
+
+.form-group {
+    @include flex-fd(center, flex-start);
     margin-bottom: 10px;
+}
+
+.input-label {
+    font-size: 15px;
 }
 
 .input-name {
@@ -207,7 +253,7 @@ main {
     border: 1px solid $color-b;
 }
 
-.comment-form {
+.comment {
     @include font-montserrat-r;
     width: 500px;
     height: 270px;

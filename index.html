@@ -106,6 +106,10 @@
                             </span>
                             2010
                         </p>
+
+                        <p class="book-info__description price-ebook"></p>
+
+                        <p class="book-info__description price-printed-book"></p>
                     </div>
                 </div>
 
@@ -137,21 +141,33 @@
             </div>
             
             <div class="book-buy-wrapper" id="buy-book">
-                <button class="book-buy__button">
-                    КУПИТИ ЕЛЕКТРОННУ КНИГУ «ФОРТ»
-                </button>
+                <h2 id="characters-book">
+                    КУПИТИ КНИГУ «ФОРТ»
+                </h2>
 
-                <button class="book-buy__button">
-                    КУПИТИ ДРУКОВАНУ КНИГУ «ФОРТ»
-                </button>
+                <div class="book_type_selection">
+                    <label for="electronic_book">
+                        <input type="radio" id="electronic_book" name="book_type" class="book-type-choice electronic" value="electronic">
+                        Електронна книга
+                    </label>
+                    <br>
+                    <label for="printed_book">
+                        <input type="radio" id="printed_book" name="book_type" class="book-type-choice printed" value="printed">
+                        Друкована книга
+                    </label>
+                </div>
+
+                <div class="payment"></div>
+
+                
 
                 <div class="book-quantity-sold-block">
                     <div class="book-quantity-sold ebook">
-                        Кількість продано електронних- лічильник
+                        Продано електронних- лічильник
                     </div>
 
                     <div class="book-quantity-sold printed">
-                        Кількість продано друкованих - лічильник
+                        Продано друкованих - лічильник
                     </div>
                 </div>
             </div>
@@ -191,16 +207,22 @@
                         </p>
                     </div>
 
-                    <label for="name" class="input-label">
-                        <input type="text" id="name" class="input-name" placeholder="Ваше ім'я">
-                    </label>
+                    <form id="comment-form" class="comment-form">
+                        <div class="form-group">
+                            <label for="name" class="input-label">*Ваше ім'я:</label>
+                            <input type="text" class="input-name" placeholder="Введіть ваше ім'я" name="name" required>
+                        </div>
 
-                    <textarea class="comment-form" name="comment" placeholder="Напишіть коментар" id="1"></textarea>
+                        <div class="form-group">
+                            <label for="comment" class="input-label">*Ваш коментар:</label>
+                            <textarea class="comment" name="comment" placeholder="Напишіть коментар" id="1" required></textarea>
+                        </div>
 
-                    <button type="button" class="comment-button-send">
-                        ВІДПРАВИТИ
-                    </button>
-                </div>                
+                        <button type="submit" class="comment-button-send">
+                            ВІДПРАВИТИ
+                        </button>
+                    </form>
+                </div>     
             </div>
         </main>
 
@@ -229,6 +251,7 @@
 
     <script src="./js/index.js"></script>
     <script src="./js/modalWindow.js"></script>
+    <script src="./js/buyBook.js"></script>
     <script src="./js/characters.js"></script>
     <script src="./js/chapters.js"></script>
     <script src="./js/comments.js"></script>

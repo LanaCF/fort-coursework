@@ -319,11 +319,11 @@ main {
 }
 
 .book-poster {
-  width: 270px;
+  width: 350px;
   height: 350px;
   margin: 0 25px 25px 0;
   background-image: url("/img/1.jpg");
-  background-size: contain;
+  background-size: cover;
   background-repeat: no-repeat;
   overflow: hidden;
   cursor: pointer;
@@ -359,17 +359,69 @@ main {
   background-color: rgba(250, 216, 169, 0.9254901961);
 }
 
+.book_type_selection {
+  margin-bottom: 25px;
+}
+
+.book-type-choice {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  background-color: #ffffff;
+  border: 2px solid #ffffff;
+  vertical-align: middle;
+  margin: 0 15px 15px;
+}
+
+.book_type_selection input[type=radio]:checked {
+  background-color: #0d0701;
+  border-color: #ffffff;
+}
+
+.book-buy__block {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.book-buy__box {
+  border: 3px solid #0d0701;
+  border-radius: 15px;
+  padding: 15px;
+}
 .book-buy__button {
   font-size: 1.5vw;
   background-color: #d7a45c;
   padding: 15px;
+  margin: 0 15px 35px;
   border-radius: 5px;
   cursor: pointer;
   -webkit-transition: all 0.5s;
   transition: all 0.5s;
 }
-.book-buy__button:hover {
+.book-buy:hover {
   background-color: #cfac7c;
+}
+
+.book-quantity-sold-block {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 50px;
 }
 
 .book-characters-wrapper {
@@ -481,6 +533,22 @@ main {
   height: auto;
 }
 
+::-webkit-scrollbar {
+  width: 25px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(250, 216, 169, 0.9254901961);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #0d0701;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
 .book-comments-wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -506,22 +574,6 @@ main {
   height: 550px;
   overflow-x: hidden;
   overflow-y: scroll;
-}
-
-::-webkit-scrollbar {
-  width: 25px;
-}
-
-::-webkit-scrollbar-track {
-  background: rgba(250, 216, 169, 0.9254901961);
-}
-
-::-webkit-scrollbar-thumb {
-  background: #0d0701;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #555;
 }
 
 .book-comment-box {
@@ -552,7 +604,23 @@ main {
   margin: 50px 0 5px;
 }
 
-.input-label {
+.comment-form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.form-group {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -565,8 +633,12 @@ main {
           justify-content: center;
   -webkit-box-align: start;
       -ms-flex-align: start;
-          align-items: start;
+          align-items: flex-start;
   margin-bottom: 10px;
+}
+
+.input-label {
+  font-size: 15px;
 }
 
 .input-name {
@@ -579,7 +651,7 @@ main {
   border: 1px solid #0d0701;
 }
 
-.comment-form {
+.comment {
   font-family: "Montserrat";
   font-weight: 400;
   width: 500px;

@@ -1,9 +1,10 @@
 const bookCommentsBlock = doc.querySelector('.book-comments-block');
 const inputName = doc.querySelector('.input-name');
-const commentForm = doc.querySelector('.comment-form');
+const commentForm = doc.querySelector('.comment');
 const commentButtonSend = doc.querySelector('.comment-button-send');
 const warning = doc.querySelector('.warning');
 
+//document.querySelector('body').onload = function() {getComments()};
 getComments();
 
 function getComments() {
@@ -11,13 +12,10 @@ function getComments() {
         .then((response) => response.json())
         .then((comments) => renderComments(comments))
         .catch(error => console.error('Помилка при отриманні коментарів:', error));
-
-    return;
 }
 
 function renderComments(comment) {
-    comment.forEach(function(item) {
-        
+    comment.forEach(function(item) {        
         const commentBox = 
         `
             <div class="book-comment-box">
@@ -65,6 +63,7 @@ commentButtonSend.addEventListener('click', (event) => {
         return response.json();
     })
     .then(() => {
+        getComments();
         inputName.value = '';
         commentForm.value = '';
         warning.style.display = 'none';

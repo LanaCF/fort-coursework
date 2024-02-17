@@ -1,26 +1,26 @@
 {
   "boughtPrintedBooks": [
     {
-      "quantityP": 75,
-      "id": "4699"
+      "id": "4699",
+      "quantityP": 75
     }
   ],
   "boughtEbooks": [
     {
-      "quantityE": 357,
-      "id": "0792"
+      "id": "0792",
+      "quantityE": 357
     }
   ],
   "pricePrintedBook": [
     {
-      "priceP": 350,
-      "id": "b26d"
+      "id": "b26d",
+      "priceP": 350
     }
   ],
   "priceEbook": [
     {
-      "priceE": 150,
-      "id": "4c96"
+      "id": "4c96",
+      "priceE": 150
     }
   ],
   "characters": [
@@ -204,14 +204,9 @@
       "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis maiores, earum ratione debitis temporibus autem laborum doloribus cupiditate similique at rem voluptatem molestias odio amet labore nostrum unde quis ipsam, nihil quibusdam distinctio nisi. Illo minima veritatis amet obcaecati placeat. Ratione placeat beatae, quae cum alias at ea. Ipsam, eveniet."
     },
     {
-      "id": "3c66",
-      "name": "ап",
-      "text": "апо"
-    },
-    {
-      "id": "dc15",
-      "name": "ап",
-      "text": "папрап"
+      "id": "1bcb",
+      "name": "іваі",
+      "text": "іва"
     }
   ]
 }
