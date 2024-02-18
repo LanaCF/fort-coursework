@@ -67,6 +67,10 @@ h3 {
   color: white;
 }
 
+.active {
+  color: red;
+}
+
 .scroll-top {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -424,6 +428,27 @@ main {
   margin-top: 50px;
 }
 
+.delivery-method {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.number-post {
+  width: 70px;
+}
+
+form input {
+  height: 35px;
+  padding: 5px;
+}
+
 .book-characters-wrapper {
   width: 100%;
   height: auto;
@@ -684,7 +709,8 @@ main {
   width: 500px;
 }
 
-.warning {
+.warning,
+.warning-quantity {
   display: none;
   color: rgb(217, 25, 25);
   font-weight: bold;

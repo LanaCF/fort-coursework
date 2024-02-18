@@ -23,6 +23,12 @@
       "priceE": 150
     }
   ],
+  "commissionBuy": [
+    {
+      "id": "1",
+      "commission": 5
+    }
+  ],
   "characters": [
     {
       "id": "1",
@@ -207,6 +213,31 @@
       "id": "1bcb",
       "name": "іваі",
       "text": "іва"
+    },
+    {
+      "id": "c362",
+      "name": "іва",
+      "text": "іва"
+    },
+    {
+      "id": "cce6",
+      "name": "фів",
+      "text": "фів"
+    },
+    {
+      "id": "eb61",
+      "name": "фаі",
+      "text": "фіва"
+    },
+    {
+      "id": "babf",
+      "name": "іва",
+      "text": "фіва"
+    },
+    {
+      "id": "b645",
+      "name": "fg",
+      "text": "fghj"
     }
   ]
 }

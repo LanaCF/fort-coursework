@@ -1,15 +1,30 @@
 const priceEbookInfo = doc.querySelector('.price-ebook');
 const pricePrintedBook = doc.querySelector('.price-printed-book');
 const payment = doc.querySelector('.payment');
+const isSelectElectronic = doc.querySelector('.electronic');
+const isSelectPrinted = doc.querySelector('.printed');
+const ebookLabel = doc.querySelector('.ebook-label');
+const pbookLabel = doc.querySelector('.pbook-label');
 
-let bookTypeSelection = false;
+let selection = false;
 
 getPriceEbook();
 getPrintedBook();
 
-isBreedsSelectEl.onchange = (e) => {
-    isBreedsSelect = e.target.checked;
-    showBreedsSelect();
+isSelectElectronic.onchange = (e) => {
+    payment.innerHTML = '';
+    pbookLabel.classList.remove('active');
+    selection = e.target.checked;
+    ebookLabel.classList.add('active');
+    renderPaymentEbook();
+}
+
+isSelectPrinted.onchange = (e) => {
+    payment.innerHTML = '';
+    ebookLabel.classList.remove('active');
+    selection = e.target.checked;
+    pbookLabel.classList.add('active');
+    renderPaymentPrintedBook();
 }
 
 function getPriceEbook() {
@@ -42,48 +57,349 @@ function getPrintedBook() {
         .catch(error => console.error('Помилка при отриманні коментарів:', error));
 }
 
-function rederPaymentEbook() {
+async function renderPaymentEbook() {
     payment.innerHTML = 
     `
-        <form id="paymentForm">
+        <form id="paymentForm" class="form-payment">
             <div class="form-group">
-                <label for="email">Електронна пошта:</label>
-                <input type="email" id="email" name="email" required>
+                <label for="email" class="form-label">Електронна пошта:</label>
+                <input type="email" id="email" name="email" placeholder="example@gmail.com" class="form-input-style" required>
             </div>
+
             <div class="form-group">
-                <label for="bookPrice">Вартість книги:</label>
-                <input type="number" id="bookPrice" name="bookPrice" min="0" step="0.01" required>
+                <label for="bookPrice" class="form-label">Вартість книги:</label>
+                <span class="price-ebook-buy"></span>
             </div>
+
             <div class="form-group">
-                <label for="commission">Комісія:</label>
-                <input type="number" id="commission" name="commission" min="0" step="0.01" required>
+                <label for="commission" class="form-label">Комісія:</label>
+                <span class="commission-ebook-buy"></span>
             </div>
+
             <div class="form-group">
-                <label for="toPay">До сплати:</label>
-                <input type="number" id="toPay" name="toPay" min="0" step="0.01" required readonly>
+                <label for="toPay" class="form-label">До сплати:</label>
+                <span class="cost"></span>
             </div>
+
             <div class="form-group">
-                <label for="amount">Внесіть суму оплати:</label>
-                <input type="number" id="amount" name="amount" min="0" step="0.01" required>
+                <label for="cardNumber" class="form-label">Номер карти:</label>
+                <input type="text" id="cardNumber" name="cardNumber" class="form-input-style card-type" placeholder="XXXX XXXX XXXX XXXX" required>
             </div>
-            <button type="submit">Оплатити</button>
+
+            <div class="form-group">
+                <label for="expiryDate" class="form-label">Термін дії:</label>
+                <input type="text" id="expiryDate" name="expiryDate" class="form-input-style term-type" placeholder="MM/RR" required>
+            </div>
+
+            <div class="form-group">
+                <label for="cvv" class="form-label">CVV:</label>
+                <input type="password" id="cvv" name="cvv" class="form-input-style cvv-type" placeholder="•••" required>
+            </div>
+
+            <button type="submit" class="form-button-buy" disabled>
+                Оплатити
+            </button>
         </form>
     `;
+    
+    commission();
+    cardType();
+    termType();
+    cvvType();
+
+    fetch(baseUrl + resources.priceEbook)
+        .then((response) => response.json())
+        .then((price) => {
+            const priceEbookBuy = doc.querySelector('.price-ebook-buy');
+            priceEbookBuy.innerText = `${ price[0].priceE } грн.`;
+        })
+        .catch(error => console.error('Помилка при отриманні коментарів:', error));
+
+    const costElement = doc.querySelector('.cost');
+
+    try {
+        const [ebookPrice, comm] = await Promise.all([costEbook(), commissionCost()]);
+        const totalCost = ebookPrice + comm;
+        costElement.innerText = `${totalCost} грн.`;
+    } catch (error) {
+        console.error('Помилка під час обчислення загальної суми для сплати:', error);
+    }
 }
 
+async function renderPaymentPrintedBook() {
+    payment.innerHTML = 
+    `
+    <form id="printBookPaymentForm" class="form-payment">
+        <div class="form-group">
+            <label for="fullName" class="form-label">ПІБ:</label>
+            <input type="text" id="fullName" name="fullName" class="form-input-style" required>
+        </div>
 
+        <div class="form-group">
+            <label for="email" class="form-label">Електронна пошта:</label>
+            <input type="email" id="email" name="email" class="form-input-style" placeholder="example@gmail.com" required>
+        </div>
 
-const bookTypeSelection = document.querySelector('.book_type_selection');
-const paymentContainer = document.querySelector('.payment');
+        <div class="form-group">
+            <label for="phone" class="form-label">Телефон:</label>
+            <input type="tel" id="phone" name="phone" class="form-input-style phone-number" placeholder="+__ (___) ___-__-__" required>
+        </div>
 
-// Додаємо обробник подій для вибору типу книги
-bookTypeSelection.addEventListener('change', function(event) {
-    const selectedBookType = event.target.value;
-    if (selectedBookType === 'electronic') {
-        // Показуємо форму оплати для електронної книги
-        showPaymentForm();
-    } else {
-        // Ховаємо форму оплати для друкованої книги
-        hidePaymentForm();
+        <div class="form-group">
+            <label for="address" class="form-label">Адреса:</label>
+            <input type="text" id="address" name="address" class="form-input-style" required>
+        </div>
+
+        <div class="form-group">
+            <p>Спосіб доставки:</p>
+            <div class="delivery-method">
+                <input type="radio" id="ukrPoshta" name="delivery" class="post ukr-post-check" required>
+                <p class="form-label ukr-post">
+                    "Укрпошта" №
+                </p>
+                <input type="number" id="numberUkrPost" name="numberUkrPost" min="1" class="number-post ukr-not-active" required>
+            </div>
+
+            <div class="delivery-method">
+                <input type="radio" id="novaPoshta" name="delivery" class="post new-post-check" required>
+                <p class="form-label new-post">
+                    "Нова пошта" №
+                </p>
+                <input type="number" id="numberPost" name="numberPost" class="number-post new-not-active" min="1" required>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="quantity" class="form-label">Кількість екземплярів:</label>
+            <input type="number" id="quantity" name="quantity" class="form-input-style quantity" min="1" value="0" required>
+            <p class="warning-quantity">
+                Будь ласка, вкажіть кількість екземплярів.
+            </p>
+        </div>
+
+        <div class="form-group">
+            <label for="bookPrice" class="form-label">Вартість книги:</label>
+            <span class="price-pbook-buy"></span>
+        </div>
+
+        <div class="form-group">
+            <label for="commission" class="form-label">Комісія:</label>
+            <span class="commission-ebook-buy"></span>
+        </div>
+
+        <div class="form-group">
+            <label for="toPay" class="form-label">До сплати:</label>
+            <span class="cost"></span>
+        </div>
+
+        <div class="form-group">
+            <label for="cardNumber" class="form-label">Номер карти:</label>
+            <input type="text" id="cardNumber" name="cardNumber" class="form-input-style card-type" placeholder="XXXX XXXX XXXX XXXX" required>
+        </div>
+
+        <div class="form-group">
+            <label for="expiryDate" class="form-label">Термін дії:</label>
+            <input type="text" id="expiryDate" name="expiryDate" class="form-input-style term-type" placeholder="MM/RR" required>
+        </div>
+
+        <div class="form-group">
+            <label for="cvv" class="form-label">CVV:</label>
+            <input type="password" id="cvv" name="cvv" class="form-input-style cvv-type" placeholder="•••" required>
+        </div>
+
+        <button type="submit" class="form-button-buy" disabled>
+            Оплатити
+        </button>
+    </form>
+    `;
+    
+    phoneType();
+    commission();
+    cardType();
+    termType();
+    cvvType();
+
+    const ukrPostCheck = doc.querySelector('.ukr-post-check');
+    const newPostCheck = doc.querySelector('.new-post-check');
+    const ukrPost = doc.querySelector('.ukr-post');
+    const newPost = doc.querySelector('.new-post');
+    const ukrNotActive = doc.querySelector('.ukr-not-active');
+    const newNotActive = doc.querySelector('.new-not-active');
+
+    ukrPostCheck.onchange = (e) => {
+        newPost.classList.remove('active');
+        newNotActive.disabled = true;
+        selection = e.target.checked;
+        ukrPost.classList.add('active');
+        ukrNotActive.disabled = false;
     }
-});
+
+    newPostCheck.onchange = (e) => {
+        ukrPost.classList.remove('active');
+        ukrNotActive.disabled = true;
+        selection = e.target.checked;
+        newPost.classList.add('active');
+        newNotActive.disabled = false;
+    }
+
+    fetch(baseUrl + resources.pricePrintedBook)
+        .then((response) => response.json())
+        .then((price) => {
+            const pricePbookBuy = doc.querySelector('.price-pbook-buy');
+            pricePbookBuy.innerText = `${ price[0].priceP } грн.`;
+        })
+        .catch(error => console.error('Помилка при отриманні коментарів:', error));
+
+    const costElement = doc.querySelector('.cost');
+    const quantity = doc.querySelector('.quantity');
+
+    quantity.addEventListener('input', async () => {
+        try {
+            const [printedPrice, comm] = await Promise.all([costPbook(), commissionCost()]);
+            const totalCost = printedPrice * quantity.value + comm;
+            costElement.innerText = `${totalCost} грн.`;
+        } catch (error) {
+            console.error('Помилка під час обчислення загальної суми для сплати:', error);
+        }
+    });
+}
+
+function phoneType() {
+    const phoneInput = doc.querySelector('.phone-number');
+
+    phoneInput.addEventListener('input', function(event) {
+        let input = event.target.value.replace(/[^0-9]/g, '');
+        
+        let formattedInput = '';
+
+        if (input.length > 0) {
+            formattedInput += `+${ input.slice(0, 2) }`;
+        }
+
+        if (input.length > 2) {
+            formattedInput += ` (${ input.slice(2, 5) }`;
+        }
+
+        if (input.length > 5) {
+            formattedInput += `) ${ input.slice(5, 8) }`;
+        }
+
+        if (input.length > 8) {
+            formattedInput += `-${ input.slice(8, 10) }`;
+        }
+
+        if (input.length > 10) {
+            formattedInput += `-${ input.slice(10, 12) }`;
+        }
+    
+        event.target.value = formattedInput;
+    });
+}
+
+function cardType() {
+    const cardForm = doc.querySelector('.card-type');
+
+    cardForm.addEventListener('input', function(event) {
+        let inputT = event.target.value.replace(/[^0-9]/g, '');
+
+        let formattedInput = '';
+
+        if(inputT.length > 0) {
+            formattedInput += `${ inputT.slice(0, 4) } `;
+        }
+
+        if(inputT.length > 4) {
+            formattedInput += `${ inputT.slice(4, 8) } `;
+        }
+
+        if(inputT.length > 8) {
+            formattedInput += `${ inputT.slice(8, 12) } `;
+        }
+
+        if(inputT.length > 12) {
+            formattedInput += `${ inputT.slice(12, 16)}`;
+        }
+
+        event.target.value = formattedInput;
+    });
+}
+
+function termType() {
+    let term = doc.querySelector('.term-type');
+
+    term.addEventListener('input', function(event) {
+        let inputTerm = event.target.value.replace(/[^0-9]/g, '');
+
+        let formattedInput = '';
+        if (inputTerm.length > 0) {
+            let month = inputTerm.slice(0, 2);
+            if (parseInt(month, 10) <= 12) {
+                formattedInput += month;
+            }
+        }
+
+        if (inputTerm.length > 2) {
+            formattedInput += '/';
+        }
+
+        if(inputTerm.length > 2) {
+            formattedInput += `${ inputTerm.slice(2, 4) }`;
+        }
+
+        event.target.value = formattedInput;
+    });
+}
+
+function cvvType() {
+    let cvv = doc.querySelector('.cvv-type');
+
+    cvv.addEventListener('input', function(event) {
+        let inputCVV = event.target.value.replace(/[^0-9]/g, '');
+
+        let formattedInput = '';
+
+        if(inputCVV.length > 0) {
+            formattedInput += `${ inputCVV.slice(0, 3) }`;
+        }
+        
+        event.target.value = formattedInput;
+    })
+}
+
+function costEbook() {
+    return fetch(baseUrl + resources.priceEbook)
+            .then((response) => response.json())
+            .then((price) => {
+                return price[0].priceE;
+            })
+            .catch(error => console.error('Помилка при отриманні коментарів:', error));
+}
+
+function costPbook() {
+    return fetch(baseUrl + resources.pricePrintedBook)
+            .then((response) => response.json())
+            .then((price) => {
+                return price[0].priceP;
+            })
+            .catch(error => console.error('Помилка при отриманні коментарів:', error));
+}
+
+function commissionCost() {
+    return fetch(baseUrl + resources.commissionBuy)
+            .then((response) => response.json())
+            .then((comm) => {
+                return comm[0].commission;
+            })
+            .catch(error => console.error('Помилка при отриманні коментарів:', error));
+}
+
+function commission() {
+    fetch(baseUrl + resources.commissionBuy)
+        .then((response) => response.json())
+        .then((comm) => {
+            const commissionEbookBuy = doc.querySelector('.commission-ebook-buy');
+            commissionEbookBuy.innerText = `${ comm[0].commission } грн.`;
+        })
+        .catch(error => console.error('Помилка при отриманні коментарів:', error));
+}
+

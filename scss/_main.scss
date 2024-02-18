@@ -94,6 +94,20 @@ main {
     margin-top: 50px;
 }
 
+.delivery-method {
+    @include flex-jc;
+    
+}
+
+.number-post {
+    width: 70px;
+}
+
+form input {
+    height: 35px;
+    padding: 5px;
+}
+
 //CHARACTERS =============================================
 
 .book-characters-wrapper {
@@ -272,12 +286,17 @@ main {
     cursor: pointer;
 }
 
+.form-button-buy {
+    
+}
+
 .error-comment-box {
     @include flex-jc(flex-start, center);
     width: 500px;
 }
 
-.warning {
+.warning,
+.warning-quantity {
     display: none;
     color: rgb(217, 25, 25);
     font-weight: bold;
