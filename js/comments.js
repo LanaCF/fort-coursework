@@ -37,7 +37,7 @@ commentButtonSend.addEventListener('click', (event) => {
     event.preventDefault();
 
     const inputNameValue = inputName.value;
-    const commentFormValue = commentForm.value;
+    const commentFormValue = commentForm.value;    
 
     if (inputNameValue === '' || commentFormValue === '') {
         warning.style.display = 'initial';
@@ -49,6 +49,8 @@ commentButtonSend.addEventListener('click', (event) => {
         "text":  `${ commentFormValue }`
     };
 
+    console.log(newArr);
+    
     fetch(baseUrl + resources.comments, {
         method: 'POST',
         headers: {

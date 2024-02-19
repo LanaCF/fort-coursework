@@ -7,8 +7,8 @@
   ],
   "boughtEbooks": [
     {
-      "id": "0792",
-      "quantityE": 357
+      "quantityE": 382,
+      "id": "0792"
     }
   ],
   "pricePrintedBook": [
@@ -208,36 +208,6 @@
       "id": "3",
       "name": "Miko",
       "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis maiores, earum ratione debitis temporibus autem laborum doloribus cupiditate similique at rem voluptatem molestias odio amet labore nostrum unde quis ipsam, nihil quibusdam distinctio nisi. Illo minima veritatis amet obcaecati placeat. Ratione placeat beatae, quae cum alias at ea. Ipsam, eveniet."
-    },
-    {
-      "id": "1bcb",
-      "name": "іваі",
-      "text": "іва"
-    },
-    {
-      "id": "c362",
-      "name": "іва",
-      "text": "іва"
-    },
-    {
-      "id": "cce6",
-      "name": "фів",
-      "text": "фів"
-    },
-    {
-      "id": "eb61",
-      "name": "фаі",
-      "text": "фіва"
-    },
-    {
-      "id": "babf",
-      "name": "іва",
-      "text": "фіва"
-    },
-    {
-      "id": "b645",
-      "name": "fg",
-      "text": "fghj"
     }
   ]
 }

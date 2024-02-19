@@ -10,6 +10,8 @@ let selection = false;
 
 getPriceEbook();
 getPrintedBook();
+getQuantitySoldEbook();
+getQuantitySoldPbook();
 
 isSelectElectronic.onchange = (e) => {
     payment.innerHTML = '';
@@ -63,7 +65,13 @@ async function renderPaymentEbook() {
         <form id="paymentForm" class="form-payment">
             <div class="form-group">
                 <label for="email" class="form-label">Електронна пошта:</label>
-                <input type="email" id="email" name="email" placeholder="example@gmail.com" class="form-input-style" required>
+                <input type="email" id="email" name="email" placeholder="example@gmail.com" class="form-input-style email-box" required>
+            </div>
+
+            <div class="error-comment-box">
+                <p class="warning-buy warning-email">
+                    Поле заповнено некоректно.
+                </p>
             </div>
 
             <div class="form-group">
@@ -86,9 +94,21 @@ async function renderPaymentEbook() {
                 <input type="text" id="cardNumber" name="cardNumber" class="form-input-style card-type" placeholder="XXXX XXXX XXXX XXXX" required>
             </div>
 
+            <div class="error-comment-box">
+                <p class="warning-buy warning-card">
+                    Поле заповнено некоректно.
+                </p>
+            </div>
+
             <div class="form-group">
                 <label for="expiryDate" class="form-label">Термін дії:</label>
                 <input type="text" id="expiryDate" name="expiryDate" class="form-input-style term-type" placeholder="MM/RR" required>
+            </div>
+
+            <div class="error-comment-box">
+                <p class="warning-buy warning-term">
+                    Поле заповнено некоректно.
+                </p>
             </div>
 
             <div class="form-group">
@@ -96,7 +116,13 @@ async function renderPaymentEbook() {
                 <input type="password" id="cvv" name="cvv" class="form-input-style cvv-type" placeholder="•••" required>
             </div>
 
-            <button type="submit" class="form-button-buy" disabled>
+            <div class="error-comment-box">
+                <p class="warning-buy warning-cvv">
+                    Поле заповнено некоректно.
+                </p>
+            </div>
+
+            <button type="submit" class="form-button-buy">
                 Оплатити
             </button>
         </form>
@@ -124,6 +150,95 @@ async function renderPaymentEbook() {
     } catch (error) {
         console.error('Помилка під час обчислення загальної суми для сплати:', error);
     }
+
+    const btnBuyEbook = doc.querySelector('.form-button-buy');
+    const warningEmail = doc.querySelector('.warning-email');
+    const warningCard = doc.querySelector('.warning-card');
+    const warningTerm = doc.querySelector('.warning-term');
+    const warningCvv = doc.querySelector('.warning-cvv');
+    const emailBox = doc.querySelector('.email-box');
+    const cardBox = doc.querySelector('.card-type');
+    const termBox = doc.querySelector('.term-type');
+    const cvvBox = doc.querySelector('.cvv-type');
+
+    btnBuyEbook.addEventListener('click', function(event) {
+        event.preventDefault();
+
+        const emailBoxValue = emailBox.value;
+        const cardBoxValue = cardBox.value;
+        const termBoxValue = termBox.value;
+        const cvvBoxValue = cvvBox.value;
+        let allFieldsValid = false;
+        
+        if (auditEmail(emailBoxValue) && auditCard(cardBoxValue) && auditTerm(termBoxValue) && auditCvv(cvvBoxValue)) {
+            allFieldsValid = true;
+            warningEmail.style.display = 'none';
+            warningCard.style.display = 'none';
+            warningTerm.style.display = 'none';
+            warningCvv.style.display = 'none';
+        } else {
+            allFieldsValid = false;
+            if (!auditEmail(emailBoxValue)) {
+                warningEmail.style.display = 'initial';
+            } else {
+                warningEmail.style.display = 'none';
+            }
+            if (!auditCard(cardBoxValue)) {
+                warningCard.style.display = 'initial';
+            } else {
+                warningCard.style.display = 'none';
+            }
+            if (!auditTerm(termBoxValue)) {
+                warningTerm.style.display = 'initial';
+            } else {
+                warningTerm.style.display = 'none';
+            }
+            if (!auditCvv(cvvBoxValue)) {
+                warningCvv.style.display = 'initial';
+            } else {
+                warningCvv.style.display = 'none';
+            }
+        }
+
+        if (allFieldsValid) {
+            fetch(baseUrl + resources.boughtEbooks + "/0792")
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(bookData => {
+                const currentQuantity = bookData.quantityE;
+                const updatedQuantity = currentQuantity + 1;
+
+                return fetch(baseUrl + resources.boughtEbooks + "/0792", {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ quantityE: updatedQuantity })
+                });
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log('Кількість куплених книг оновлена успішно:', data);
+            })
+            .catch(error => {
+                console.error('Сталася помилка при оновленні кількості куплених книг:', error);
+            });
+
+            emailBox.value = '';
+            cardBox.value = '';
+            termBox.value = '';
+            cvvBox.value = '';
+        }
+    });
 }
 
 async function renderPaymentPrintedBook() {
@@ -131,8 +246,36 @@ async function renderPaymentPrintedBook() {
     `
     <form id="printBookPaymentForm" class="form-payment">
         <div class="form-group">
-            <label for="fullName" class="form-label">ПІБ:</label>
+            <label for="fullName" class="form-label">Прізвище:</label>
             <input type="text" id="fullName" name="fullName" class="form-input-style" required>
+        </div>
+
+        <div class="error-comment-box">
+            <p class="warning-buy warning-surname">
+                Поле заповнено некоректно.
+            </p>
+        </div>
+
+        <div class="form-group">
+            <label for="fullName" class="form-label">Ім'я:</label>
+            <input type="text" id="fullName" name="fullName" class="form-input-style" required>
+        </div>
+
+        <div class="error-comment-box">
+            <p class="warning-buy warning-name">
+                Поле заповнено некоректно.
+            </p>
+        </div>
+
+        <div class="form-group">
+            <label for="fullName" class="form-label">По батькові:</label>
+            <input type="text" id="fullName" name="fullName" class="form-input-style" required>
+        </div>
+
+        <div class="error-comment-box">
+            <p class="warning-buy warning-middle-name">
+                Поле заповнено некоректно.
+            </p>
         </div>
 
         <div class="form-group">
@@ -140,14 +283,32 @@ async function renderPaymentPrintedBook() {
             <input type="email" id="email" name="email" class="form-input-style" placeholder="example@gmail.com" required>
         </div>
 
+        <div class="error-comment-box">
+            <p class="warning-buy warning-email">
+                Поле заповнено некоректно.
+            </p>
+        </div>
+
         <div class="form-group">
             <label for="phone" class="form-label">Телефон:</label>
             <input type="tel" id="phone" name="phone" class="form-input-style phone-number" placeholder="+__ (___) ___-__-__" required>
         </div>
 
+        <div class="error-comment-box">
+            <p class="warning-buy warning-phone">
+                Поле заповнено некоректно.
+            </p>
+        </div>
+
         <div class="form-group">
             <label for="address" class="form-label">Адреса:</label>
             <input type="text" id="address" name="address" class="form-input-style" required>
+        </div>
+
+        <div class="error-comment-box">
+            <p class="warning-buy warning-address">
+                Поле заповнено некоректно.
+            </p>
         </div>
 
         <div class="form-group">
@@ -169,10 +330,19 @@ async function renderPaymentPrintedBook() {
             </div>
         </div>
 
+        <div class="error-comment-box">
+            <p class="warning-buy warning-post">
+                Оберіть спосіб доставки.
+            </p>
+        </div>
+
         <div class="form-group">
             <label for="quantity" class="form-label">Кількість екземплярів:</label>
             <input type="number" id="quantity" name="quantity" class="form-input-style quantity" min="1" value="0" required>
-            <p class="warning-quantity">
+        </div>
+
+        <div class="error-comment-box">
+            <p class="warning-buy warning-quantity">
                 Будь ласка, вкажіть кількість екземплярів.
             </p>
         </div>
@@ -197,9 +367,21 @@ async function renderPaymentPrintedBook() {
             <input type="text" id="cardNumber" name="cardNumber" class="form-input-style card-type" placeholder="XXXX XXXX XXXX XXXX" required>
         </div>
 
+        <div class="error-comment-box">
+            <p class="warning-buy warning-card">
+            Будь ласка, вкажіть кількість екземплярів.
+            </p>
+        </div>
+
         <div class="form-group">
             <label for="expiryDate" class="form-label">Термін дії:</label>
             <input type="text" id="expiryDate" name="expiryDate" class="form-input-style term-type" placeholder="MM/RR" required>
+        </div>
+
+        <div class="error-comment-box">
+            <p class="warning-buy warning-term">
+            Будь ласка, вкажіть кількість екземплярів.
+            </p>
         </div>
 
         <div class="form-group">
@@ -207,7 +389,13 @@ async function renderPaymentPrintedBook() {
             <input type="password" id="cvv" name="cvv" class="form-input-style cvv-type" placeholder="•••" required>
         </div>
 
-        <button type="submit" class="form-button-buy" disabled>
+        <div class="error-comment-box">
+            <p class="warning-buy warning-cvv">
+            Будь ласка, вкажіть кількість екземплярів.
+            </p>
+        </div>
+
+        <button type="submit" class="form-button-buy">
             Оплатити
         </button>
     </form>
@@ -260,6 +448,102 @@ async function renderPaymentPrintedBook() {
             costElement.innerText = `${totalCost} грн.`;
         } catch (error) {
             console.error('Помилка під час обчислення загальної суми для сплати:', error);
+        }
+    });
+
+
+
+
+
+
+
+
+    const btnBuyEbook = doc.querySelector('.form-button-buy');
+    const warningEmail = doc.querySelector('.warning-email');
+    const warningCard = doc.querySelector('.warning-card');
+    const warningTerm = doc.querySelector('.warning-term');
+    const warningCvv = doc.querySelector('.warning-cvv');
+    const emailBox = doc.querySelector('.email-box');
+    const cardBox = doc.querySelector('.card-type');
+    const termBox = doc.querySelector('.term-type');
+    const cvvBox = doc.querySelector('.cvv-type');
+
+    btnBuyEbook.addEventListener('click', function(event) {
+        event.preventDefault();
+
+        const emailBoxValue = emailBox.value;
+        const cardBoxValue = cardBox.value;
+        const termBoxValue = termBox.value;
+        const cvvBoxValue = cvvBox.value;
+        let allFieldsValid = false;
+        
+        if (auditEmail(emailBoxValue) && auditCard(cardBoxValue) && auditTerm(termBoxValue) && auditCvv(cvvBoxValue)) {
+            allFieldsValid = true;
+            warningEmail.style.display = 'none';
+            warningCard.style.display = 'none';
+            warningTerm.style.display = 'none';
+            warningCvv.style.display = 'none';
+        } else {
+            allFieldsValid = false;
+            if (!auditEmail(emailBoxValue)) {
+                warningEmail.style.display = 'initial';
+            } else {
+                warningEmail.style.display = 'none';
+            }
+            if (!auditCard(cardBoxValue)) {
+                warningCard.style.display = 'initial';
+            } else {
+                warningCard.style.display = 'none';
+            }
+            if (!auditTerm(termBoxValue)) {
+                warningTerm.style.display = 'initial';
+            } else {
+                warningTerm.style.display = 'none';
+            }
+            if (!auditCvv(cvvBoxValue)) {
+                warningCvv.style.display = 'initial';
+            } else {
+                warningCvv.style.display = 'none';
+            }
+        }
+
+        if (allFieldsValid) {
+            fetch(baseUrl + resources.boughtEbooks + "/0792")
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(bookData => {
+                const currentQuantity = bookData.quantityE;
+                const updatedQuantity = currentQuantity + 1;
+
+                return fetch(baseUrl + resources.boughtEbooks + "/0792", {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ quantityE: updatedQuantity })
+                });
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log('Кількість куплених книг оновлена успішно:', data);
+            })
+            .catch(error => {
+                console.error('Сталася помилка при оновленні кількості куплених книг:', error);
+            });
+
+            emailBox.value = '';
+            cardBox.value = '';
+            termBox.value = '';
+            cvvBox.value = '';
         }
     });
 }
@@ -403,3 +687,117 @@ function commission() {
         .catch(error => console.error('Помилка при отриманні коментарів:', error));
 }
 
+function auditEmail(str) {
+    const regexp = /^[\wа-яА-Яії]+\.?[\wа-яА-Яії]+@[\wа-яА-Яії]+\.[a-zA-Z]{2,}$/gi;
+    const res = str.match(regexp);
+
+    return res;
+}
+
+function auditCard(str) {
+    const regexp = /^\d{4}\s\d{4}\s\d{4}\s\d{4}$/g;
+    const res = str.match(regexp);
+
+    return res;
+}
+
+function auditTerm(str) {
+    const currentDate = new Date();
+    let currentYear = currentDate.getFullYear() % 100;
+    const currentYearAudit = currentYear + 20;
+    let currentMonth = currentDate.getMonth() + 1; 
+    
+    let newStr = str.split('/');
+    let inputMonth = newStr[0];
+    const inputYear = Number(newStr[1]);
+
+    inputMonth = inputMonth < 10 ? inputMonth.slice(1) : inputMonth;
+    inputMonth = Number(inputMonth);
+
+    if (inputYear > currentYear && inputYear < currentYearAudit || (inputYear === currentYear && inputMonth >= currentMonth)) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+function auditCvv(str) {
+    const regexp = /^\d{3}$/g;
+    const res = str.match(regexp);
+
+    return res;
+}
+
+function getQuantitySoldEbook() {
+    fetch(baseUrl + resources.boughtEbooks + "/0792")
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(bookData => {
+            const ebookQuantitySold = doc.querySelector('.ebook-quantity-sold');
+            ebookQuantitySold.innerText = bookData.quantityE;
+            animateCounterEbook(bookData.quantityE, 2000);
+        })
+        .catch(error => {
+            console.error('Сталася помилка при отриманні кількості куплених книг:', error);
+        });
+}
+
+function getQuantitySoldPbook() {
+    fetch(baseUrl + resources.boughtPrintedBooks + "/4699")
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(bookData => {
+            const pbookQuantitySold = doc.querySelector('.pbook-quantity-sold');
+            pbookQuantitySold.innerText = bookData.quantityP;
+            animateCounterPbook(bookData.quantityP, 2000);
+        })
+        .catch(error => {
+            console.error('Сталася помилка при отриманні кількості куплених книг:', error);
+        });
+}
+
+function animateCounterEbook(targetValue, duration) {
+    const counter = document.querySelector('.ebook-quantity-sold');
+    const interval = 50;
+    const steps = duration / interval;
+    const increment = targetValue / steps;
+    let currentValue = 0;
+
+    const timer = setInterval(() => {
+        currentValue += increment;
+        counter.innerText = Math.ceil(currentValue);
+
+        if (currentValue >= targetValue) {
+        counter.innerText = targetValue;
+        clearInterval(timer);
+        }
+    }, interval);
+}
+
+function animateCounterPbook(targetValue, duration) {
+    const counter = document.querySelector('.pbook-quantity-sold');
+    const interval = 50;
+    const steps = duration / interval;
+    const increment = targetValue / steps;
+    let currentValue = 0;
+
+    const timer = setInterval(() => {
+        currentValue += increment;
+        counter.innerText = Math.ceil(currentValue);
+
+        if (currentValue >= targetValue) {
+        counter.innerText = targetValue;
+        clearInterval(timer);
+        }
+    }, interval);
+}
+
+  
