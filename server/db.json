@@ -1,13 +1,13 @@
 {
   "boughtPrintedBooks": [
     {
-      "id": "4699",
-      "quantityP": 75
+      "quantityE": "75",
+      "id": "4699"
     }
   ],
   "boughtEbooks": [
     {
-      "quantityE": 382,
+      "quantityE": 383,
       "id": "0792"
     }
   ],

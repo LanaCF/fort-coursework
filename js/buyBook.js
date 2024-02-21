@@ -246,8 +246,8 @@ async function renderPaymentPrintedBook() {
     `
     <form id="printBookPaymentForm" class="form-payment">
         <div class="form-group">
-            <label for="fullName" class="form-label">Прізвище:</label>
-            <input type="text" id="fullName" name="fullName" class="form-input-style" required>
+            <label for="surnamePbook" class="form-label">Прізвище:</label>
+            <input type="text" id="surnamePbook" name="fullName" class="form-input-style surname-box" required>
         </div>
 
         <div class="error-comment-box">
@@ -257,8 +257,8 @@ async function renderPaymentPrintedBook() {
         </div>
 
         <div class="form-group">
-            <label for="fullName" class="form-label">Ім'я:</label>
-            <input type="text" id="fullName" name="fullName" class="form-input-style" required>
+            <label for="namePbook" class="form-label">Ім'я:</label>
+            <input type="text" id="namePbook" name="fullName" class="form-input-style name-box" required>
         </div>
 
         <div class="error-comment-box">
@@ -268,8 +268,8 @@ async function renderPaymentPrintedBook() {
         </div>
 
         <div class="form-group">
-            <label for="fullName" class="form-label">По батькові:</label>
-            <input type="text" id="fullName" name="fullName" class="form-input-style" required>
+            <label for="middleNamePbook" class="form-label">По батькові:</label>
+            <input type="text" id="middleNamePbook" name="fullName" class="form-input-style middle-name-box" required>
         </div>
 
         <div class="error-comment-box">
@@ -279,8 +279,8 @@ async function renderPaymentPrintedBook() {
         </div>
 
         <div class="form-group">
-            <label for="email" class="form-label">Електронна пошта:</label>
-            <input type="email" id="email" name="email" class="form-input-style" placeholder="example@gmail.com" required>
+            <label for="emailPbook" class="form-label">Електронна пошта:</label>
+            <input type="email" id="emailPbook" name="email" class="form-input-style email-box" placeholder="example@gmail.com" required>
         </div>
 
         <div class="error-comment-box">
@@ -290,8 +290,8 @@ async function renderPaymentPrintedBook() {
         </div>
 
         <div class="form-group">
-            <label for="phone" class="form-label">Телефон:</label>
-            <input type="tel" id="phone" name="phone" class="form-input-style phone-number" placeholder="+__ (___) ___-__-__" required>
+            <label for="phonePbook" class="form-label">Телефон:</label>
+            <input type="tel" id="phonePbook" name="phone" class="form-input-style phone-number" placeholder="+__ (___) ___-__-__" required>
         </div>
 
         <div class="error-comment-box">
@@ -301,8 +301,8 @@ async function renderPaymentPrintedBook() {
         </div>
 
         <div class="form-group">
-            <label for="address" class="form-label">Адреса:</label>
-            <input type="text" id="address" name="address" class="form-input-style" required>
+            <label for="addressPbook" class="form-label">Адреса:</label>
+            <input type="text" id="addressPbook" name="address" class="form-input-style address-box" required>
         </div>
 
         <div class="error-comment-box">
@@ -314,19 +314,19 @@ async function renderPaymentPrintedBook() {
         <div class="form-group">
             <p>Спосіб доставки:</p>
             <div class="delivery-method">
-                <input type="radio" id="ukrPoshta" name="delivery" class="post ukr-post-check" required>
+                <input type="radio" id="ukrPoshtaPbook" name="delivery" class="post ukr-post-check" required>
                 <p class="form-label ukr-post">
                     "Укрпошта" №
                 </p>
-                <input type="number" id="numberUkrPost" name="numberUkrPost" min="1" class="number-post ukr-not-active" required>
+                <input type="number" id="numberUkrPostPbook" name="numberUkrPost" min="1" class="ukr-number-post ukr-not-active" required>
             </div>
 
             <div class="delivery-method">
-                <input type="radio" id="novaPoshta" name="delivery" class="post new-post-check" required>
+                <input type="radio" id="novaPoshtaPbook" name="delivery" class="post new-post-check" required>
                 <p class="form-label new-post">
                     "Нова пошта" №
                 </p>
-                <input type="number" id="numberPost" name="numberPost" class="number-post new-not-active" min="1" required>
+                <input type="number" id="numberPostPbook" name="numberPost" class="new-number-post new-not-active" min="1" required>
             </div>
         </div>
 
@@ -336,9 +336,15 @@ async function renderPaymentPrintedBook() {
             </p>
         </div>
 
+        <div class="error-comment-box">
+            <p class="warning-buy warning-post-number">
+                Вкажіть поштове відділення.
+            </p>
+        </div>
+
         <div class="form-group">
-            <label for="quantity" class="form-label">Кількість екземплярів:</label>
-            <input type="number" id="quantity" name="quantity" class="form-input-style quantity" min="1" value="0" required>
+            <label for="quantityPbook" class="form-label">Кількість екземплярів:</label>
+            <input type="number" id="quantityPbook" name="quantity" class="form-input-style quantity" min="1" value="" required>
         </div>
 
         <div class="error-comment-box">
@@ -363,8 +369,8 @@ async function renderPaymentPrintedBook() {
         </div>
 
         <div class="form-group">
-            <label for="cardNumber" class="form-label">Номер карти:</label>
-            <input type="text" id="cardNumber" name="cardNumber" class="form-input-style card-type" placeholder="XXXX XXXX XXXX XXXX" required>
+            <label for="cardNumberPbook" class="form-label">Номер карти:</label>
+            <input type="text" id="cardNumberPbook" name="cardNumber" class="form-input-style card-type" placeholder="XXXX XXXX XXXX XXXX" required>
         </div>
 
         <div class="error-comment-box">
@@ -374,8 +380,8 @@ async function renderPaymentPrintedBook() {
         </div>
 
         <div class="form-group">
-            <label for="expiryDate" class="form-label">Термін дії:</label>
-            <input type="text" id="expiryDate" name="expiryDate" class="form-input-style term-type" placeholder="MM/RR" required>
+            <label for="expiryDatePbook" class="form-label">Термін дії:</label>
+            <input type="text" id="expiryDatePbook" name="expiryDate" class="form-input-style term-type" placeholder="MM/RR" required>
         </div>
 
         <div class="error-comment-box">
@@ -385,8 +391,8 @@ async function renderPaymentPrintedBook() {
         </div>
 
         <div class="form-group">
-            <label for="cvv" class="form-label">CVV:</label>
-            <input type="password" id="cvv" name="cvv" class="form-input-style cvv-type" placeholder="•••" required>
+            <label for="cvvPbook" class="form-label">CVV:</label>
+            <input type="password" id="cvvPbook" name="cvv" class="form-input-style cvv-type" placeholder="•••" required>
         </div>
 
         <div class="error-comment-box">
@@ -413,8 +419,11 @@ async function renderPaymentPrintedBook() {
     const newPost = doc.querySelector('.new-post');
     const ukrNotActive = doc.querySelector('.ukr-not-active');
     const newNotActive = doc.querySelector('.new-not-active');
+    const ukrNumberPost = doc.querySelector('.ukr-number-post');
+    const newNumberPost = doc.querySelector('.new-number-post');
 
     ukrPostCheck.onchange = (e) => {
+        newNumberPost.innerText = '';
         newPost.classList.remove('active');
         newNotActive.disabled = true;
         selection = e.target.checked;
@@ -423,6 +432,7 @@ async function renderPaymentPrintedBook() {
     }
 
     newPostCheck.onchange = (e) => {
+        ukrNumberPost.innerText = '';
         ukrPost.classList.remove('active');
         ukrNotActive.disabled = true;
         selection = e.target.checked;
@@ -450,20 +460,31 @@ async function renderPaymentPrintedBook() {
             console.error('Помилка під час обчислення загальної суми для сплати:', error);
         }
     });
-
-
-
-
-
-
-
-
+    
     const btnBuyEbook = doc.querySelector('.form-button-buy');
+
+    const warningSurname = doc.querySelector('.warning-surname');
+    const warningName = doc.querySelector('.warning-name');
+    const warningMiddleName = doc.querySelector('.warning-middle-name');
+    const warningPphone = doc.querySelector('.warning-phone');
+    const warningAddress = doc.querySelector('.warning-address');
+    const warningPost = doc.querySelector('.warning-post');
+    const warningPostNumber = doc.querySelector('.warning-post-number');
+    const warningQuantity = doc.querySelector('.warning-quantity');
     const warningEmail = doc.querySelector('.warning-email');
     const warningCard = doc.querySelector('.warning-card');
     const warningTerm = doc.querySelector('.warning-term');
     const warningCvv = doc.querySelector('.warning-cvv');
+
+    const surnameBox = doc.querySelector('.surname-box');
+    const nameBox = doc.querySelector('.name-box');
+    const middleNameBox = doc.querySelector('.middle-name-box');
     const emailBox = doc.querySelector('.email-box');
+    const phoneNumber = doc.querySelector('.phone-number');
+    const addressBox = doc.querySelector('.address-box');
+    const ukrPostCheckBox = doc.querySelector('.ukr-post-check');
+    const newPostCheckBox = doc.querySelector('.new-post-check');
+    const quantityBox = doc.querySelector('.quantity');
     const cardBox = doc.querySelector('.card-type');
     const termBox = doc.querySelector('.term-type');
     const cvvBox = doc.querySelector('.cvv-type');
@@ -471,35 +492,111 @@ async function renderPaymentPrintedBook() {
     btnBuyEbook.addEventListener('click', function(event) {
         event.preventDefault();
 
+        const surnameBoxValue = surnameBox.value;
+        const nameBoxValue = nameBox.value;
+        const middleNameBoxValue = middleNameBox.value;
         const emailBoxValue = emailBox.value;
+        const phoneNumberValue = phoneNumber.value;
+        const addressBoxValue = addressBox.value;
+        const ukrPostCheckBoxValue = ukrPostCheckBox.value;
+        const newPostCheckBoxValue = newPostCheckBox.value;
+        const quantityBoxValue = quantityBox.value;
         const cardBoxValue = cardBox.value;
         const termBoxValue = termBox.value;
         const cvvBoxValue = cvvBox.value;
+
         let allFieldsValid = false;
         
-        if (auditEmail(emailBoxValue) && auditCard(cardBoxValue) && auditTerm(termBoxValue) && auditCvv(cvvBoxValue)) {
+        if (auditName(surnameBoxValue) && auditName(nameBoxValue) && auditName(middleNameBoxValue) && auditPhone(phoneNumberValue) && auditAddress(addressBoxValue) && auditEmail(emailBoxValue) && auditCard(cardBoxValue) && auditTerm(termBoxValue) && auditCvv(cvvBoxValue) && (newPostCheck.checked || ukrPostCheck.checked) && auditPostAndQuantity(quantityBoxValue)) {
             allFieldsValid = true;
+            
+            warningSurname.style.display = 'none';
+            warningName.style.display = 'none';
+            warningMiddleName.style.display = 'none';
+            warningPphone.style.display = 'none';
             warningEmail.style.display = 'none';
+            warningAddress.style.display = 'none';
+            warningPost.style.display = 'none';
+            warningPostNumber.style.display = 'none';
+            warningQuantity.style.display = 'none';
             warningCard.style.display = 'none';
             warningTerm.style.display = 'none';
             warningCvv.style.display = 'none';
         } else {
             allFieldsValid = false;
+
+            if (!auditName(surnameBoxValue)) {
+                warningSurname.style.display = 'initial';
+            } else {
+                warningSurname.style.display = 'none';
+            }
+
+            if (!auditName(nameBoxValue)) {
+                warningName.style.display = 'initial';
+            } else {
+                warningName.style.display = 'none';
+            }
+
+            if (!auditName(middleNameBoxValue)) {
+                warningMiddleName.style.display = 'initial';
+            } else {
+                warningMiddleName.style.display = 'none';
+            }
+
+            if (!auditPhone(phoneNumberValue)) {
+                warningPphone.style.display = 'initial';
+            } else {
+                warningPphone.style.display = 'none';
+            }
+
             if (!auditEmail(emailBoxValue)) {
                 warningEmail.style.display = 'initial';
             } else {
                 warningEmail.style.display = 'none';
             }
+
+            if (!auditAddress(addressBoxValue)) {
+                warningAddress.style.display = 'initial';
+            } else {
+                warningAddress.style.display = 'none';
+            }
+
+            if (!newPostCheck.checked && !ukrPostCheck.checked) {
+                warningPost.style.display = 'initial';
+            } else {
+                warningPost.style.display = 'none';
+            }
+
+            if (ukrPostCheck.checked && !ukrPostCheckBoxValue) {
+                warningPostNumber.style.display = 'initial';
+            } else {
+                warningPostNumber.style.display = 'none';
+            }
+
+           if (newPostCheck.checked && !newPostCheckBoxValue) {
+                warningPostNumber.style.display = 'initial';
+            } else {
+                warningPostNumber.style.display = 'none';
+            }
+
+            if (!auditPostAndQuantity(quantityBoxValue)) {
+                warningCard.style.display = 'initial';
+            } else {
+                warningCard.style.display = 'none';
+            }
+
             if (!auditCard(cardBoxValue)) {
                 warningCard.style.display = 'initial';
             } else {
                 warningCard.style.display = 'none';
             }
+
             if (!auditTerm(termBoxValue)) {
                 warningTerm.style.display = 'initial';
             } else {
                 warningTerm.style.display = 'none';
             }
+
             if (!auditCvv(cvvBoxValue)) {
                 warningCvv.style.display = 'initial';
             } else {
@@ -508,7 +605,7 @@ async function renderPaymentPrintedBook() {
         }
 
         if (allFieldsValid) {
-            fetch(baseUrl + resources.boughtEbooks + "/0792")
+            fetch(baseUrl + resources.boughtPrintedBooks + "/4699")
             .then(response => {
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
@@ -516,10 +613,10 @@ async function renderPaymentPrintedBook() {
                 return response.json();
             })
             .then(bookData => {
-                const currentQuantity = bookData.quantityE;
-                const updatedQuantity = currentQuantity + 1;
+                const currentQuantity = bookData.quantityP;
+                const updatedQuantity = currentQuantity + Number(quantityBoxValue);
 
-                return fetch(baseUrl + resources.boughtEbooks + "/0792", {
+                return fetch(baseUrl + resources.boughtPrintedBooks + "/4699", {
                     method: 'PUT',
                     headers: {
                         'Content-Type': 'application/json'
@@ -687,8 +784,36 @@ function commission() {
         .catch(error => console.error('Помилка при отриманні коментарів:', error));
 }
 
+function auditName(str) {
+    const regexp = /^[А-ЯІЇа-яіїA-Za-z\-]+$/gi;
+    const res = str.match(regexp);
+
+    return res;
+}
+
 function auditEmail(str) {
     const regexp = /^[\wа-яА-Яії]+\.?[\wа-яА-Яії]+@[\wа-яА-Яії]+\.[a-zA-Z]{2,}$/gi;
+    const res = str.match(regexp);
+
+    return res;
+}
+
+function auditPhone(str) {
+    const regexp = /\+\d{2}\s\(\d{3}\)\s\d{3}\-\d{2}\-\d{2}/mgi;
+    const res = str.match(regexp);
+
+    return res;
+}
+
+function auditAddress(str) {
+    const regexp = /^[А-ЯІЇа-яіїA-Za-z\-]+$/gi;
+    const res = str.match(regexp);
+
+    return res;
+}
+
+function auditPostAndQuantity(str) {
+    const regexp = /\d+/g;
     const res = str.match(regexp);
 
     return res;
