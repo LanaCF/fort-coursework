@@ -422,8 +422,11 @@ async function renderPaymentPrintedBook() {
     const ukrNumberPost = doc.querySelector('.ukr-number-post');
     const newNumberPost = doc.querySelector('.new-number-post');
 
+    newNotActive.disabled = true;
+    ukrNotActive.disabled = true;
+
     ukrPostCheck.onchange = (e) => {
-        newNumberPost.innerText = '';
+        newNumberPost.value = '';
         newPost.classList.remove('active');
         newNotActive.disabled = true;
         selection = e.target.checked;
@@ -432,7 +435,7 @@ async function renderPaymentPrintedBook() {
     }
 
     newPostCheck.onchange = (e) => {
-        ukrNumberPost.innerText = '';
+        ukrNumberPost.value = '';
         ukrPost.classList.remove('active');
         ukrNotActive.disabled = true;
         selection = e.target.checked;
@@ -500,6 +503,8 @@ async function renderPaymentPrintedBook() {
         const addressBoxValue = addressBox.value;
         const ukrPostCheckBoxValue = ukrPostCheckBox.value;
         const newPostCheckBoxValue = newPostCheckBox.value;
+        const ukrNumberPostValue = ukrNumberPost.value;
+        const newNumberPostValue = newNumberPost.value;
         const quantityBoxValue = quantityBox.value;
         const cardBoxValue = cardBox.value;
         const termBoxValue = termBox.value;
@@ -507,7 +512,7 @@ async function renderPaymentPrintedBook() {
 
         let allFieldsValid = false;
         
-        if (auditName(surnameBoxValue) && auditName(nameBoxValue) && auditName(middleNameBoxValue) && auditPhone(phoneNumberValue) && auditAddress(addressBoxValue) && auditEmail(emailBoxValue) && auditCard(cardBoxValue) && auditTerm(termBoxValue) && auditCvv(cvvBoxValue) && (newPostCheck.checked || ukrPostCheck.checked) && auditPostAndQuantity(quantityBoxValue)) {
+        if (auditName(surnameBoxValue) && auditName(nameBoxValue) && auditName(middleNameBoxValue) && auditPhone(phoneNumberValue) && auditAddress(addressBoxValue) && auditEmail(emailBoxValue) && auditCard(cardBoxValue) && auditTerm(termBoxValue) && auditCvv(cvvBoxValue) && (newPostCheck.checked || ukrPostCheck.checked) && (auditPost(ukrNumberPostValue) || auditPost(newNumberPostValue)) && auditQuantity(quantityBoxValue)) {
             allFieldsValid = true;
             
             warningSurname.style.display = 'none';
@@ -572,17 +577,23 @@ async function renderPaymentPrintedBook() {
             } else {
                 warningPostNumber.style.display = 'none';
             }
-
-           if (newPostCheck.checked && !newPostCheckBoxValue) {
+            
+            if (newPostCheck.checked && !newPostCheckBoxValue) {
                 warningPostNumber.style.display = 'initial';
             } else {
                 warningPostNumber.style.display = 'none';
             }
 
-            if (!auditPostAndQuantity(quantityBoxValue)) {
-                warningCard.style.display = 'initial';
+            if ((ukrPostCheck.checked && !auditPost(ukrNumberPostValue)) || (newPostCheck.checked && !auditPost(newNumberPostValue))) {
+                warningPostNumber.style.display = 'initial';
             } else {
-                warningCard.style.display = 'none';
+                warningPostNumber.style.display = 'none';
+            }
+
+            if (!auditQuantity(quantityBoxValue)) {
+                warningQuantity.style.display = 'initial';
+            } else {
+                warningQuantity.style.display = 'none';
             }
 
             if (!auditCard(cardBoxValue)) {
@@ -621,7 +632,7 @@ async function renderPaymentPrintedBook() {
                     headers: {
                         'Content-Type': 'application/json'
                     },
-                    body: JSON.stringify({ quantityE: updatedQuantity })
+                    body: JSON.stringify({ quantityP: updatedQuantity })
                 });
             })
             .then(response => {
@@ -812,8 +823,15 @@ function auditAddress(str) {
     return res;
 }
 
-function auditPostAndQuantity(str) {
-    const regexp = /\d+/g;
+function auditPost(str) {
+    const regexp = /^\d+$/g;
+    const res = str.match(regexp);
+
+    return res;
+}
+
+function auditQuantity(str) {
+    const regexp = /^[1-9][0-9]*$/g;
     const res = str.match(regexp);
 
     return res;
@@ -926,3 +944,13 @@ function animateCounterPbook(targetValue, duration) {
 }
 
   
+
+
+
+
+
+
+
+
+
+
