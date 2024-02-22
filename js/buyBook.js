@@ -233,10 +233,14 @@ async function renderPaymentEbook() {
                 console.error('Сталася помилка при оновленні кількості куплених книг:', error);
             });
 
-            emailBox.value = '';
-            cardBox.value = '';
-            termBox.value = '';
-            cvvBox.value = '';
+            payment.innerHTML = '';
+            getQuantitySoldEbook();
+            getQuantitySoldPbook();
+
+            // emailBox.value = '';
+            // cardBox.value = '';
+            // termBox.value = '';
+            // cvvBox.value = '';
         }
     });
 }
@@ -648,10 +652,14 @@ async function renderPaymentPrintedBook() {
                 console.error('Сталася помилка при оновленні кількості куплених книг:', error);
             });
 
-            emailBox.value = '';
-            cardBox.value = '';
-            termBox.value = '';
-            cvvBox.value = '';
+            payment.innerHTML = '';
+            getQuantitySoldEbook();
+            getQuantitySoldPbook();
+
+            // emailBox.value = '';
+            // cardBox.value = '';
+            // termBox.value = '';
+            // cvvBox.value = '';
         }
     });
 }
