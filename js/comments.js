@@ -33,6 +33,22 @@ function renderComments(comment) {
     });
 }
 
+function renderAddComment(arr) {
+    const commentBoxOne = 
+        `
+            <div class="book-comment-box">
+                <p class="user-name text-bold">
+                    ${arr.name}
+                </p>
+
+                <p class="user-comment">
+                    ${arr.text}
+                </p>
+            </div>
+        `;
+    bookCommentsBlock.insertAdjacentHTML('afterbegin', commentBoxOne);
+}
+
 commentButtonSend.addEventListener('click', (event) => {
     event.preventDefault();
 
@@ -65,7 +81,8 @@ commentButtonSend.addEventListener('click', (event) => {
         return response.json();
     })
     .then(() => {
-        getComments();
+        //getComments();
+        renderAddComment(newArr);
         inputName.value = '';
         commentForm.value = '';
         warning.style.display = 'none';

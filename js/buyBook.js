@@ -228,19 +228,16 @@ async function renderPaymentEbook() {
             })
             .then(data => {
                 console.log('Кількість куплених книг оновлена успішно:', data);
+                ebookLabel.classList.remove('active');
+                isSelectElectronic.checked = false;
+                getQuantitySoldEbook();
+                getQuantitySoldPbook();
             })
             .catch(error => {
                 console.error('Сталася помилка при оновленні кількості куплених книг:', error);
             });
 
             payment.innerHTML = '';
-            getQuantitySoldEbook();
-            getQuantitySoldPbook();
-
-            // emailBox.value = '';
-            // cardBox.value = '';
-            // termBox.value = '';
-            // cvvBox.value = '';
         }
     });
 }
@@ -619,6 +616,41 @@ async function renderPaymentPrintedBook() {
             }
         }
 
+        // if (allFieldsValid) {
+        //     (async () => {
+        //         try {
+        //             const response = await fetch(baseUrl + resources.boughtPrintedBooks + "/4699");
+        //             if (!response.ok) {
+        //                 throw new Error('Network response was not ok');
+        //             }
+        //             const bookData = await response.json();
+        //             const currentQuantity = bookData.quantityP;
+        //             const updatedQuantity = currentQuantity + Number(quantityBoxValue);
+        
+        //             const updateResponse = await fetch(baseUrl + resources.boughtPrintedBooks + "/4699", {
+        //                 method: 'PUT',
+        //                 headers: {
+        //                     'Content-Type': 'application/json'
+        //                 },
+        //                 body: JSON.stringify({ quantityP: updatedQuantity })
+        //             });
+        //             if (!updateResponse.ok) {
+        //                 throw new Error('Network response was not ok');
+        //             }
+        //             const updatedData = await updateResponse.json();
+        //             console.log('Кількість куплених книг оновлена успішно:', updatedData);
+        //             setTimeout(() => {
+        //                 getQuantitySoldEbook();
+        //                 getQuantitySoldPbook();
+        //             }, 1000);
+        //             payment.innerHTML = ''; // Поміщаємо в середину блоку try
+        //         } catch (error) {
+        //             console.error('Сталася помилка при оновленні кількості куплених книг:', error);
+        //             // Обробка помилки
+        //         }
+        //     })();
+        // }
+
         if (allFieldsValid) {
             fetch(baseUrl + resources.boughtPrintedBooks + "/4699")
             .then(response => {
@@ -647,19 +679,16 @@ async function renderPaymentPrintedBook() {
             })
             .then(data => {
                 console.log('Кількість куплених книг оновлена успішно:', data);
+                pbookLabel.classList.remove('active');
+                isSelectPrinted.checked = false;
+                getQuantitySoldEbook();
+                getQuantitySoldPbook();
             })
             .catch(error => {
                 console.error('Сталася помилка при оновленні кількості куплених книг:', error);
             });
 
             payment.innerHTML = '';
-            getQuantitySoldEbook();
-            getQuantitySoldPbook();
-
-            // emailBox.value = '';
-            // cardBox.value = '';
-            // termBox.value = '';
-            // cvvBox.value = '';
         }
     });
 }
@@ -962,3 +991,8 @@ function animateCounterPbook(targetValue, duration) {
 
 
 
+
+            // emailBox.value = '';
+            // cardBox.value = '';
+            // termBox.value = '';
+            // cvvBox.value = '';
