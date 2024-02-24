@@ -1,13 +1,13 @@
 {
   "boughtPrintedBooks": [
     {
-      "quantityP": 2131,
+      "quantityP": 2143,
       "id": "4699"
     }
   ],
   "boughtEbooks": [
     {
-      "quantityE": 403,
+      "quantityE": 411,
       "id": "0792"
     }
   ],
@@ -27,6 +27,40 @@
     {
       "id": "1",
       "commission": 5
+    }
+  ],
+  "ebookBuyerData": [
+    {
+      "id": "4a41",
+      "email": "clubfate@gmail.com",
+      "cardNumber": "1234 5678 9012 3456",
+      "expiryDate": "12/25",
+      "cvv": "111"
+    },
+    {
+      "id": "e625",
+      "email": "clubfate@gmail.com",
+      "cardNumber": "1111 1111 1111 1111",
+      "expiryDate": "12/25",
+      "cvv": "111"
+    }
+  ],
+  "pbookBuyerData": [
+    {
+      "id": "f691",
+      "surname": "Тек",
+      "name": "Джон",
+      "middleName": "Рік",
+      "email": "clubfate@gmail.com",
+      "phone": "+38 (067) 592-53-19",
+      "address": "о. Хару",
+      "post": "Нова пошта",
+      "numberPost": "3",
+      "quantity": "5",
+      "cost": "1755",
+      "cardNumber": "3573 5735 7357 3573",
+      "expiryDate": "12/25",
+      "cvv": "357"
     }
   ],
   "characters": [

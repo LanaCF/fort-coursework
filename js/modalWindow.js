@@ -110,6 +110,11 @@ class ModalWindow extends MyWindow {
             right: 0;
             `;
 
+        overlay.onclick = () => {
+            myWindow.remove();
+            overlay.remove();
+        };
+        
         btnClose.onclick = () => {
             myWindow.remove();
             overlay.remove();
@@ -166,6 +171,11 @@ class ChapterModal extends MyWindow {
             right: 0;
         `;
         overlay.append(btnClose);
+
+        overlay.onclick = () => {
+            myWindow.remove();
+            overlay.remove();
+        };
 
         btnClose.onclick = () => {
             myWindow.remove();

@@ -6,6 +6,8 @@ const resources = {
     boughtEbooks: 'boughtEbooks',
     pricePrintedBook: 'pricePrintedBook',
     priceEbook: 'priceEbook',
+    ebookBuyerData: 'ebookBuyerData',
+    pbookBuyerData: 'pbookBuyerData',
     commissionBuy: 'commissionBuy',
     characters: 'characters',
     chapters: 'chapters',

@@ -5,6 +5,7 @@ const isSelectElectronic = doc.querySelector('.electronic');
 const isSelectPrinted = doc.querySelector('.printed');
 const ebookLabel = doc.querySelector('.ebook-label');
 const pbookLabel = doc.querySelector('.pbook-label');
+const congratsPurchase = doc.querySelector('.congrats-purchase-text');
 
 let selection = false;
 
@@ -15,6 +16,7 @@ getQuantitySoldPbook();
 
 isSelectElectronic.onchange = (e) => {
     payment.innerHTML = '';
+    congratsPurchase.style.display = 'none';
     pbookLabel.classList.remove('active');
     selection = e.target.checked;
     ebookLabel.classList.add('active');
@@ -23,6 +25,7 @@ isSelectElectronic.onchange = (e) => {
 
 isSelectPrinted.onchange = (e) => {
     payment.innerHTML = '';
+    congratsPurchase.style.display = 'none';
     ebookLabel.classList.remove('active');
     selection = e.target.checked;
     pbookLabel.classList.add('active');
@@ -230,8 +233,18 @@ async function renderPaymentEbook() {
                 console.log('Кількість куплених книг оновлена успішно:', data);
                 ebookLabel.classList.remove('active');
                 isSelectElectronic.checked = false;
+                congratsPurchase.style.display = 'initial';
                 getQuantitySoldEbook();
                 getQuantitySoldPbook();
+
+                const ebookPurchaseData = {
+                    email: `${ emailBoxValue }`,
+                    cardNumber: `${ cardBoxValue }`,
+                    expiryDate: `${ termBoxValue }`,
+                    cvv: `${ cvvBoxValue }`
+                };
+
+                sendPurchaseDataToServer(ebookPurchaseData, "ebookBuyerData");
             })
             .catch(error => {
                 console.error('Сталася помилка при оновленні кількості куплених книг:', error);
@@ -455,10 +468,12 @@ async function renderPaymentPrintedBook() {
     const costElement = doc.querySelector('.cost');
     const quantity = doc.querySelector('.quantity');
 
+    let totalCost;
+
     quantity.addEventListener('input', async () => {
         try {
             const [printedPrice, comm] = await Promise.all([costPbook(), commissionCost()]);
-            const totalCost = printedPrice * quantity.value + comm;
+            totalCost = printedPrice * quantity.value + comm;
             costElement.innerText = `${totalCost} грн.`;
         } catch (error) {
             console.error('Помилка під час обчислення загальної суми для сплати:', error);
@@ -616,41 +631,6 @@ async function renderPaymentPrintedBook() {
             }
         }
 
-        // if (allFieldsValid) {
-        //     (async () => {
-        //         try {
-        //             const response = await fetch(baseUrl + resources.boughtPrintedBooks + "/4699");
-        //             if (!response.ok) {
-        //                 throw new Error('Network response was not ok');
-        //             }
-        //             const bookData = await response.json();
-        //             const currentQuantity = bookData.quantityP;
-        //             const updatedQuantity = currentQuantity + Number(quantityBoxValue);
-        
-        //             const updateResponse = await fetch(baseUrl + resources.boughtPrintedBooks + "/4699", {
-        //                 method: 'PUT',
-        //                 headers: {
-        //                     'Content-Type': 'application/json'
-        //                 },
-        //                 body: JSON.stringify({ quantityP: updatedQuantity })
-        //             });
-        //             if (!updateResponse.ok) {
-        //                 throw new Error('Network response was not ok');
-        //             }
-        //             const updatedData = await updateResponse.json();
-        //             console.log('Кількість куплених книг оновлена успішно:', updatedData);
-        //             setTimeout(() => {
-        //                 getQuantitySoldEbook();
-        //                 getQuantitySoldPbook();
-        //             }, 1000);
-        //             payment.innerHTML = ''; // Поміщаємо в середину блоку try
-        //         } catch (error) {
-        //             console.error('Сталася помилка при оновленні кількості куплених книг:', error);
-        //             // Обробка помилки
-        //         }
-        //     })();
-        // }
-
         if (allFieldsValid) {
             fetch(baseUrl + resources.boughtPrintedBooks + "/4699")
             .then(response => {
@@ -681,8 +661,27 @@ async function renderPaymentPrintedBook() {
                 console.log('Кількість куплених книг оновлена успішно:', data);
                 pbookLabel.classList.remove('active');
                 isSelectPrinted.checked = false;
+                congratsPurchase.style.display = 'initial';
                 getQuantitySoldEbook();
                 getQuantitySoldPbook();
+
+                const pbookPurchaseData = {
+                    surname: `${ surnameBoxValue }`,
+                    name: `${ nameBoxValue }`,
+                    middleName: `${ middleNameBoxValue }`,
+                    email: `${ emailBoxValue }`,
+                    phone: `${ phoneNumberValue }`,
+                    address: `${ addressBoxValue }`,
+                    post: ukrPostCheck.checked ? 'Укрпошта' : 'Нова пошта',
+                    numberPost: ukrPostCheck.checked ? ukrNumberPostValue : newNumberPostValue,
+                    quantity: `${ quantityBoxValue }`,
+                    cost: `${ totalCost }`,
+                    cardNumber: `${ cardBoxValue }`,
+                    expiryDate: `${ termBoxValue }`,
+                    cvv: `${ cvvBoxValue }`
+                };
+
+                sendPurchaseDataToServer(pbookPurchaseData, "pbookBuyerData");
             })
             .catch(error => {
                 console.error('Сталася помилка при оновленні кількості куплених книг:', error);
@@ -854,7 +853,7 @@ function auditPhone(str) {
 }
 
 function auditAddress(str) {
-    const regexp = /^[А-ЯІЇа-яіїA-Za-z\-]+$/gi;
+    const regexp = /^[А-ЯІЇа-яіїA-Za-z\-.\s]+$/gi;
     const res = str.match(regexp);
 
     return res;
@@ -980,7 +979,27 @@ function animateCounterPbook(targetValue, duration) {
     }, interval);
 }
 
-  
+function sendPurchaseDataToServer(purchaseData, resourceName) {
+    fetch(baseUrl + resources[resourceName], {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(purchaseData)
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return response.json();
+    })
+    .then(data => {
+        console.log('Дані успішно відправлено на сервер:', data);
+    })
+    .catch(error => {
+        console.error('Сталася помилка при відправленні даних на сервер:', error);
+    });
+} 
 
 
 
@@ -992,7 +1011,46 @@ function animateCounterPbook(targetValue, duration) {
 
 
 
-            // emailBox.value = '';
-            // cardBox.value = '';
-            // termBox.value = '';
-            // cvvBox.value = '';
+// emailBox.value = '';
+// cardBox.value = '';
+// termBox.value = '';
+// cvvBox.value = '';
+
+
+
+
+
+ // if (allFieldsValid) {
+        //     (async () => {
+        //         try {
+        //             const response = await fetch(baseUrl + resources.boughtPrintedBooks + "/4699");
+        //             if (!response.ok) {
+        //                 throw new Error('Network response was not ok');
+        //             }
+        //             const bookData = await response.json();
+        //             const currentQuantity = bookData.quantityP;
+        //             const updatedQuantity = currentQuantity + Number(quantityBoxValue);
+        
+        //             const updateResponse = await fetch(baseUrl + resources.boughtPrintedBooks + "/4699", {
+        //                 method: 'PUT',
+        //                 headers: {
+        //                     'Content-Type': 'application/json'
+        //                 },
+        //                 body: JSON.stringify({ quantityP: updatedQuantity })
+        //             });
+        //             if (!updateResponse.ok) {
+        //                 throw new Error('Network response was not ok');
+        //             }
+        //             const updatedData = await updateResponse.json();
+        //             console.log('Кількість куплених книг оновлена успішно:', updatedData);
+        //             setTimeout(() => {
+        //                 getQuantitySoldEbook();
+        //                 getQuantitySoldPbook();
+        //             }, 1000);
+        //             payment.innerHTML = ''; // Поміщаємо в середину блоку try
+        //         } catch (error) {
+        //             console.error('Сталася помилка при оновленні кількості куплених книг:', error);
+        //             // Обробка помилки
+        //         }
+        //     })();
+        // }
