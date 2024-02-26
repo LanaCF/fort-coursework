@@ -2,7 +2,6 @@ const scrollToTopBtn = document.getElementById('scrollToTopBtn');
 const scrollToBottomBtn = document.getElementById('scrollToBottomBtn');
 
 function scrollToTop() {
-    
     window.scrollTo({
         top: 0,
         behavior: 'smooth'

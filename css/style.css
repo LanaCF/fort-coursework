@@ -246,16 +246,20 @@ h3 {
 }
 .header {
   width: 100%;
-  height: 500px;
-  background-color: #d7a45c;
+  max-height: 100vh;
   position: relative;
   overflow: hidden;
 }
 .header__quote {
   font-size: 2vw;
+  color: #d7a45c;
   position: absolute;
-  top: 12vw;
-  left: 37vw;
+  top: 20vw;
+  left: 50vw;
+}
+
+.header-img {
+  width: 100vw;
 }
 
 .menu-list {
