@@ -13,11 +13,11 @@ main {
 }
 
 .book-poster {
-    width: 350px;
-    height: 350px;
-    margin: 0 25px 25px 0;
+    width: 25vw;
+    height: 30vw;
+    margin: 0 3vw 3vw 0;
     background-image: url('/img/1.jpg');
-    background-size: cover;
+    background-size: contain;
     background-repeat: no-repeat;
     overflow: hidden;
     cursor: pointer;
