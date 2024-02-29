@@ -66,7 +66,7 @@
   "characters": [
     {
       "id": "1",
-      "img": "img/1.jpg",
+      "img": "img/img1.jpg",
       "name": "Тек Джон-Рік",
       "birthday": "03.01.1984",
       "nationality": "кореєць",
@@ -75,7 +75,7 @@
     },
     {
       "id": "2",
-      "img": "img/1.jpg",
+      "img": "img/img2.jpg",
       "name": "Тек Ґа Йон",
       "birthday": "01.08.1986",
       "nationality": "кореянка",
@@ -84,7 +84,7 @@
     },
     {
       "id": "3",
-      "img": "img/1.jpg",
+      "img": "img/img3.jpg",
       "name": "Кан Джун Ґі",
       "birthday": "05.09.1984",
       "nationality": "кореєць",
@@ -93,7 +93,7 @@
     },
     {
       "id": "4",
-      "img": "img/1.jpg",
+      "img": "img/img4.jpg",
       "name": "Софія Легранд",
       "birthday": "15.11.1987",
       "nationality": "словенка, француженка",
@@ -102,7 +102,7 @@
     },
     {
       "id": "5",
-      "img": "img/1.jpg",
+      "img": "img/img5.jpg",
       "name": "П’єр Легранд",
       "birthday": "14.02.1982",
       "nationality": "француз",
@@ -111,7 +111,7 @@
     },
     {
       "id": "6",
-      "img": "img/1.jpg",
+      "img": "img/img6.jpg",
       "name": "Сакурада Мацуда",
       "birthday": "25.08.1954",
       "nationality": "японець",
@@ -120,7 +120,7 @@
     },
     {
       "id": "7",
-      "img": "img/1.jpg",
+      "img": "img/img7.jpg",
       "name": "Фуміко Мацуда",
       "birthday": "11.04.1985",
       "nationality": "японка",
@@ -129,7 +129,7 @@
     },
     {
       "id": "8",
-      "img": "img/1.jpg",
+      "img": "img/img8.jpg",
       "name": "Юкі Мацуда",
       "birthday": "10.07.1987",
       "nationality": "японка",
@@ -138,7 +138,7 @@
     },
     {
       "id": "9",
-      "img": "img/1.jpg",
+      "img": "img/img9.jpg",
       "name": "Кім Сан Джон",
       "birthday": "23.04.1965",
       "nationality": "кореєць",
@@ -147,7 +147,7 @@
     },
     {
       "id": "10",
-      "img": "img/1.jpg",
+      "img": "img/img10.jpg",
       "name": "Кім Дже Сан",
       "birthday": "27.02.1967",
       "nationality": "кореєць",
@@ -156,7 +156,7 @@
     },
     {
       "id": "11",
-      "img": "img/1.jpg",
+      "img": "img/img11.jpg",
       "name": "Ямада Сатоші",
       "birthday": "27.12.1955",
       "nationality": "японець",
@@ -165,7 +165,7 @@
     },
     {
       "id": "12",
-      "img": "img/1.jpg",
+      "img": "img/img12.jpg",
       "name": "Ван Ґюрі",
       "birthday": "03.06.1990",
       "nationality": "тайванка",
@@ -174,7 +174,7 @@
     },
     {
       "id": "13",
-      "img": "img/1.jpg",
+      "img": "img/img13.jpg",
       "name": "Доміано Манкузо",
       "birthday": "14.08.1963",
       "nationality": "італієць",
@@ -183,7 +183,7 @@
     },
     {
       "id": "14",
-      "img": "img/1.jpg",
+      "img": "img/img14.jpg",
       "name": "Дон Лі",
       "birthday": "03.11.1984",
       "nationality": "кореєць",
@@ -192,7 +192,7 @@
     },
     {
       "id": "15",
-      "img": "img/1.jpg",
+      "img": "img/img15.jpg",
       "name": "Мінору Іто",
       "birthday": "17.08.1984",
       "nationality": "кореєць",
