@@ -45,7 +45,11 @@ h3 {
 
 //ADDITIONAL =====================================================================================================
 
-.text-bold {
+.text-bold {    
+    @include font-montserrat-exb;
+}
+
+.bold {
     font-weight: bold;
 }
 

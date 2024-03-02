@@ -28,7 +28,6 @@ class MyWindow {
             `
             position: fixed;
             z-index: 20000;
-            background-color: #bbcedf;
             padding: 35px;
             max-width: ${this.size.w}%;
             height: ${this.size.h}px;

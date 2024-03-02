@@ -48,6 +48,11 @@ h3 {
 }
 
 .text-bold {
+  font-family: "Montserrat";
+  font-weight: 800;
+}
+
+.bold {
   font-weight: bold;
 }
 
@@ -318,18 +323,18 @@ main {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
 }
 .book-info__description {
-  margin-bottom: 25px;
+  margin-bottom: 10px;
 }
 
 .book-poster {
   width: 25vw;
   height: 30vw;
-  margin: 0 3vw 3vw 0;
+  margin: 0 3vw 0 0;
   background-image: url("/img/1.jpg");
   background-size: contain;
   background-repeat: no-repeat;
@@ -342,10 +347,37 @@ main {
   background-image: url("/img/2.jpg");
 }
 
+.book-info-block {
+  width: 55vw;
+}
+
 .book-info-wrapper {
   width: 100%;
   background-color: #d7a45c;
   padding: 35px 45px;
+}
+
+.ebook-quantity-sold,
+.pbook-quantity-sold {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 55px;
+}
+
+.payment {
+  width: 35%;
+}
+
+.buy-book {
+  font-family: "Montserrat";
+  font-weight: 800;
 }
 
 .book-buy-wrapper {
@@ -423,12 +455,13 @@ main {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  width: 100%;
   margin-top: 50px;
 }
 
@@ -456,6 +489,10 @@ form input {
 .congrats-purchase-text {
   display: none;
   color: rgb(135, 33, 13);
+}
+
+.form-input-style {
+  width: 15vw;
 }
 
 .book-characters-wrapper {
@@ -514,7 +551,7 @@ form input {
 }
 .card__img-mod-wind {
   width: 17vw;
-  margin-bottom: 25px;
+  margin: 25px;
 }
 .card__title-box {
   display: -webkit-box;
@@ -539,6 +576,10 @@ form input {
 
 .info-style-title {
   margin-bottom: 25px;
+}
+
+.modulWind {
+  margin: 0 25px;
 }
 
 .book-read-wrapper {
@@ -678,7 +719,7 @@ form input {
 .input-name {
   font-family: "Montserrat";
   font-weight: 400;
-  width: 500px;
+  width: 50vw;
   height: 45px;
   padding: 10px;
   background-color: rgba(250, 216, 169, 0.9254901961);
@@ -688,7 +729,7 @@ form input {
 .comment {
   font-family: "Montserrat";
   font-weight: 400;
-  width: 500px;
+  width: 50vw;
   height: 270px;
   padding: 10px;
   background-color: rgba(250, 216, 169, 0.9254901961);

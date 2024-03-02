@@ -5,17 +5,17 @@ main {
 }
 
 .book-info {
-    @include flex-jc;
+    @include flex-jc(center, flex-start);
 
     &__description {
-        margin-bottom: 25px;
+        margin-bottom: 10px;
     }
 }
 
 .book-poster {
     width: 25vw;
     height: 30vw;
-    margin: 0 3vw 3vw 0;
+    margin: 0 3vw 0 0;
     background-image: url('/img/1.jpg');
     background-size: contain;
     background-repeat: no-repeat;
@@ -28,13 +28,31 @@ main {
     }
 }
 
+.book-info-block {
+    width: 55vw;
+}
+
 .book-info-wrapper {
     width: 100%;
     background-color: $color-c;
     padding: $padding-container;
 }
 
+.ebook-quantity-sold,
+.pbook-quantity-sold {
+    @include flex-jc;
+    font-size: 55px;
+}
+
 //BUY =============================================
+
+.payment {
+    width: 35%;
+}
+
+.buy-book {
+    @include font-montserrat-exb;
+}
 
 .book-buy-wrapper {
     @include flex-fd;
@@ -90,7 +108,8 @@ main {
 }
 
 .book-quantity-sold-block {
-    @include flex-jc;
+    @include flex-jc(space-between, center);
+    width: 100%;
     margin-top: 50px;
 }
 
@@ -111,6 +130,10 @@ form input {
 .congrats-purchase-text {
     display: none;
     color: rgb(135, 33, 13);
+}
+
+.form-input-style {
+    width: 15vw;
 }
 
 //CHARACTERS =============================================
@@ -161,7 +184,7 @@ form input {
   
     &__img-mod-wind {
       width: 17vw;
-      margin-bottom: 25px;
+      margin: 25px;
     }
   
     &__title-box {
@@ -183,6 +206,10 @@ form input {
 
   .info-style-title {
     margin-bottom: 25px;
+  }
+
+  .modulWind {
+    margin: 0 25px;
   }
 
 //READ =============================================
@@ -265,7 +292,7 @@ form input {
 
 .input-name {
     @include font-montserrat-r;
-    width: 500px;
+    width: 50vw;
     height: 45px;
     padding: 10px;
     background-color: $color-g;
@@ -274,7 +301,7 @@ form input {
 
 .comment {
     @include font-montserrat-r;
-    width: 500px;
+    width: 50vw;
     height: 270px;
     padding: 10px;
     background-color: $color-g;
@@ -289,10 +316,6 @@ form input {
     background-color: $color-i;
     color: $color-a;
     cursor: pointer;
-}
-
-.form-button-buy {
-    
 }
 
 .error-comment-box {

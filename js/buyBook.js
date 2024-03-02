@@ -67,7 +67,7 @@ async function renderPaymentEbook() {
     `
         <form id="paymentForm" class="form-payment">
             <div class="form-group">
-                <label for="email" class="form-label">Електронна пошта:</label>
+                <label for="email" class="form-label bold">Електронна пошта:</label>
                 <input type="email" id="email" name="email" placeholder="example@gmail.com" class="form-input-style email-box" required>
             </div>
 
@@ -78,22 +78,22 @@ async function renderPaymentEbook() {
             </div>
 
             <div class="form-group">
-                <label for="bookPrice" class="form-label">Вартість книги:</label>
+                <label for="bookPrice" class="form-label bold">Вартість книги:</label>
                 <span class="price-ebook-buy"></span>
             </div>
 
             <div class="form-group">
-                <label for="commission" class="form-label">Комісія:</label>
+                <label for="commission" class="form-label bold">Комісія:</label>
                 <span class="commission-ebook-buy"></span>
             </div>
 
             <div class="form-group">
-                <label for="toPay" class="form-label">До сплати:</label>
+                <label for="toPay" class="form-label bold">До сплати:</label>
                 <span class="cost"></span>
             </div>
 
             <div class="form-group">
-                <label for="cardNumber" class="form-label">Номер карти:</label>
+                <label for="cardNumber" class="form-label bold">Номер карти:</label>
                 <input type="text" id="cardNumber" name="cardNumber" class="form-input-style card-type" placeholder="XXXX XXXX XXXX XXXX" required>
             </div>
 
@@ -104,7 +104,7 @@ async function renderPaymentEbook() {
             </div>
 
             <div class="form-group">
-                <label for="expiryDate" class="form-label">Термін дії:</label>
+                <label for="expiryDate" class="form-label bold">Термін дії:</label>
                 <input type="text" id="expiryDate" name="expiryDate" class="form-input-style term-type" placeholder="MM/RR" required>
             </div>
 
@@ -115,7 +115,7 @@ async function renderPaymentEbook() {
             </div>
 
             <div class="form-group">
-                <label for="cvv" class="form-label">CVV:</label>
+                <label for="cvv" class="form-label bold">CVV:</label>
                 <input type="password" id="cvv" name="cvv" class="form-input-style cvv-type" placeholder="•••" required>
             </div>
 
@@ -260,7 +260,7 @@ async function renderPaymentPrintedBook() {
     `
     <form id="printBookPaymentForm" class="form-payment">
         <div class="form-group">
-            <label for="surnamePbook" class="form-label">Прізвище:</label>
+            <label for="surnamePbook" class="form-label bold">Прізвище:</label>
             <input type="text" id="surnamePbook" name="fullName" class="form-input-style surname-box" required>
         </div>
 
@@ -271,7 +271,7 @@ async function renderPaymentPrintedBook() {
         </div>
 
         <div class="form-group">
-            <label for="namePbook" class="form-label">Ім'я:</label>
+            <label for="namePbook" class="form-label bold">Ім'я:</label>
             <input type="text" id="namePbook" name="fullName" class="form-input-style name-box" required>
         </div>
 
@@ -282,7 +282,7 @@ async function renderPaymentPrintedBook() {
         </div>
 
         <div class="form-group">
-            <label for="middleNamePbook" class="form-label">По батькові:</label>
+            <label for="middleNamePbook" class="form-label bold">По батькові:</label>
             <input type="text" id="middleNamePbook" name="fullName" class="form-input-style middle-name-box" required>
         </div>
 
@@ -293,7 +293,7 @@ async function renderPaymentPrintedBook() {
         </div>
 
         <div class="form-group">
-            <label for="emailPbook" class="form-label">Електронна пошта:</label>
+            <label for="emailPbook" class="form-label bold">Електронна пошта:</label>
             <input type="email" id="emailPbook" name="email" class="form-input-style email-box" placeholder="example@gmail.com" required>
         </div>
 
@@ -304,7 +304,7 @@ async function renderPaymentPrintedBook() {
         </div>
 
         <div class="form-group">
-            <label for="phonePbook" class="form-label">Телефон:</label>
+            <label for="phonePbook" class="form-label bold">Телефон:</label>
             <input type="tel" id="phonePbook" name="phone" class="form-input-style phone-number" placeholder="+__ (___) ___-__-__" required>
         </div>
 
@@ -315,7 +315,7 @@ async function renderPaymentPrintedBook() {
         </div>
 
         <div class="form-group">
-            <label for="addressPbook" class="form-label">Адреса:</label>
+            <label for="addressPbook" class="form-label bold">Адреса:</label>
             <input type="text" id="addressPbook" name="address" class="form-input-style address-box" required>
         </div>
 
@@ -326,13 +326,13 @@ async function renderPaymentPrintedBook() {
         </div>
 
         <div class="form-group">
-            <p>Спосіб доставки:</p>
+            <p class="bold">Спосіб доставки:</p>
             <div class="delivery-method">
                 <input type="radio" id="ukrPoshtaPbook" name="delivery" class="post ukr-post-check" required>
                 <p class="form-label ukr-post">
                     "Укрпошта" №
                 </p>
-                <input type="number" id="numberUkrPostPbook" name="numberUkrPost" min="1" class="ukr-number-post ukr-not-active" required>
+                <input type="number" id="numberUkrPostPbook" name="numberUkrPost" min="1" class="ukr-number-post ukr-not-active number-post" required>
             </div>
 
             <div class="delivery-method">
@@ -340,7 +340,7 @@ async function renderPaymentPrintedBook() {
                 <p class="form-label new-post">
                     "Нова пошта" №
                 </p>
-                <input type="number" id="numberPostPbook" name="numberPost" class="new-number-post new-not-active" min="1" required>
+                <input type="number" id="numberPostPbook" name="numberPost" class="new-number-post new-not-active number-post" min="1" required>
             </div>
         </div>
 
@@ -357,7 +357,7 @@ async function renderPaymentPrintedBook() {
         </div>
 
         <div class="form-group">
-            <label for="quantityPbook" class="form-label">Кількість екземплярів:</label>
+            <label for="quantityPbook" class="form-label bold">Кількість екземплярів:</label>
             <input type="number" id="quantityPbook" name="quantity" class="form-input-style quantity" min="1" value="" required>
         </div>
 
@@ -368,22 +368,22 @@ async function renderPaymentPrintedBook() {
         </div>
 
         <div class="form-group">
-            <label for="bookPrice" class="form-label">Вартість книги:</label>
+            <label for="bookPrice" class="form-label bold">Вартість книги:</label>
             <span class="price-pbook-buy"></span>
         </div>
 
         <div class="form-group">
-            <label for="commission" class="form-label">Комісія:</label>
+            <label for="commission" class="form-label bold">Комісія:</label>
             <span class="commission-ebook-buy"></span>
         </div>
 
         <div class="form-group">
-            <label for="toPay" class="form-label">До сплати:</label>
+            <label for="toPay" class="form-label bold">До сплати:</label>
             <span class="cost"></span>
         </div>
 
         <div class="form-group">
-            <label for="cardNumberPbook" class="form-label">Номер карти:</label>
+            <label for="cardNumberPbook" class="form-label bold">Номер карти:</label>
             <input type="text" id="cardNumberPbook" name="cardNumber" class="form-input-style card-type" placeholder="XXXX XXXX XXXX XXXX" required>
         </div>
 
@@ -394,7 +394,7 @@ async function renderPaymentPrintedBook() {
         </div>
 
         <div class="form-group">
-            <label for="expiryDatePbook" class="form-label">Термін дії:</label>
+            <label for="expiryDatePbook" class="form-label bold">Термін дії:</label>
             <input type="text" id="expiryDatePbook" name="expiryDate" class="form-input-style term-type" placeholder="MM/RR" required>
         </div>
 
@@ -405,7 +405,7 @@ async function renderPaymentPrintedBook() {
         </div>
 
         <div class="form-group">
-            <label for="cvvPbook" class="form-label">CVV:</label>
+            <label for="cvvPbook" class="form-label bold">CVV:</label>
             <input type="password" id="cvvPbook" name="cvv" class="form-input-style cvv-type" placeholder="•••" required>
         </div>
 
