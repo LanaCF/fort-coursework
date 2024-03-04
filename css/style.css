@@ -72,6 +72,10 @@ h3 {
   color: white;
 }
 
+.top {
+  padding-top: 55px;
+}
+
 .active {
   color: red;
 }
@@ -89,7 +93,7 @@ h3 {
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  background-color: rgba(240, 232, 88, 0.555);
+  background-color: rgba(143, 122, 115, 0.57);
   padding-bottom: 7px;
   cursor: pointer;
   position: fixed;
@@ -122,7 +126,7 @@ h3 {
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  background-color: rgba(240, 232, 88, 0.555);
+  background-color: rgba(143, 122, 115, 0.57);
   padding-top: 5px;
   cursor: pointer;
   position: fixed;
@@ -574,12 +578,35 @@ form input {
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
 
-.info-style-title {
-  margin-bottom: 25px;
+.info-style {
+  padding-bottom: 15px;
+}
+
+.info-style-bottom {
+  padding-bottom: 55px;
+}
+
+.info-style-bold {
+  font-family: "TTNormsPro";
+  font-weight: 700;
 }
 
 .modulWind {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   margin: 0 25px;
+  height: 100%;
 }
 
 .book-read-wrapper {
@@ -792,4 +819,123 @@ footer {
 .footer-contacts-text {
   font-size: 1vw;
   padding-top: 15px;
+}
+
+@media (max-width: 992px) {
+  body {
+    font-size: 2vw;
+  }
+  .payment {
+    width: 55%;
+  }
+  .form-input-style {
+    width: 25vw;
+  }
+  .modal-window-info-block {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    width: 100%;
+    height: 100%;
+    text-align: justify;
+    -webkit-hyphens: auto;
+        -ms-hyphens: auto;
+            hyphens: auto;
+    background-color: white;
+    padding: 15px;
+    overflow: hidden;
+    overflow-y: scroll;
+  }
+  .top {
+    padding-top: 5px;
+  }
+  .info-style-title {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    width: 100%;
+  }
+  .card__img-mod-wind {
+    width: 21vw;
+    margin: 15px;
+  }
+  .footer-contacts-text {
+    font-size: 1.5vw;
+  }
+}
+@media (max-width: 607px) {
+  body {
+    font-size: 2.5vw;
+  }
+  .book-info-wrapper,
+  .book-characters-wrapper,
+  .book-comments-wrapper,
+  .book-comment-box {
+    padding: 15px 25px;
+  }
+  .payment {
+    width: 75%;
+  }
+  .form-input-style {
+    width: 35vw;
+  }
+  .ebook-quantity-sold,
+  .pbook-quantity-sold {
+    font-size: 35px;
+  }
+  .footer-contacts-text {
+    font-size: 2vw;
+  }
+}
+@media (max-width: 457px) {
+  body {
+    font-size: 3.5vw;
+  }
+  .scroll-top {
+    width: 25px;
+    height: 25px;
+    top: 50px;
+    right: 45px;
+  }
+  .bottomToTop {
+    margin: 10px 8px 7px 8px;
+    border-top: 0 solid transparent;
+    border-right: 5px solid transparent;
+    border-bottom: 5px solid #0d0701;
+    border-left: 5px solid transparent;
+  }
+  .scroll-bottom {
+    width: 25px;
+    height: 25px;
+    bottom: 100px;
+    right: 45px;
+  }
+  .bottomToBottom {
+    width: 0;
+    height: 0;
+    margin: 7px 8px 4px 8px;
+    border-top: 5px solid #0d0701;
+    border-right: 5px solid transparent;
+    border-bottom: 0 solid transparent;
+    border-left: 5px solid transparent;
+  }
+  .payment {
+    width: 95%;
+  }
+  .footer-contacts-text {
+    font-size: 3vw;
+  }
 }/*# sourceMappingURL=style.css.map */

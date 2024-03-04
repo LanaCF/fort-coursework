@@ -21,6 +21,10 @@ function renderCharactersList(info) {
         bookCharactersBox.dataset.postId = id;
 
         bookCharactersImg.className = 'book-characters__img';
+        bookCharactersImg.onerror = function() {
+            this.onerror = null; // Видаляємо обробник, щоб уникнути зациклення
+            this.src = 'img/image_not_found.jpg'; // Встановлюємо шлях до фото за замовчуванням
+        };
         bookCharactersImg.src = img;
 
         bookCharactersBlock.append(bookCharactersBox);
@@ -47,7 +51,7 @@ function renderCharactersList(info) {
 }
 
 function renderInfoBlock(postInfo) {
-    infoWindow = new ModalWindow({ w: 80, h: 500 }, { top: 10, left: 10 }, postInfo.id, postInfo.img, postInfo.name, postInfo.birthday, postInfo.nationality, postInfo.profession, postInfo.info);
+    infoWindow = new ModalWindow({ w: 80, h: 500 }, { top: 10, left: 10 }, postInfo.id, postInfo.img, postInfo.imgInfo, postInfo.name, postInfo.birthday, postInfo.nationality, postInfo.profession, postInfo.info);
     infoWindow.create();
     console.log('test2', postInfo.id);
 }

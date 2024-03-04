@@ -202,15 +202,28 @@ form input {
       color: rgb(49, 49, 49);
       font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     }
-  }
+}
 
-  .info-style-title {
-    margin-bottom: 25px;
-  }
+.info-style {
+    padding-bottom: 15px;
+}
 
-  .modulWind {
+.info-style-bottom {
+    padding-bottom: 55px;
+}
+
+.info-style-bold {
+    @include font-ttnormspro-b;    
+}
+
+.modulWind {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: center;
     margin: 0 25px;
-  }
+    height: 100%
+}
 
 //READ =============================================
 

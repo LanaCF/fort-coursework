@@ -3,12 +3,13 @@ let infoWindow;
 // MyWindow ----------------------------------------------------------------------
 
 class MyWindow {
-    constructor(size, position, id, img, name, birthday, nationality, profession, info, title, text ) {
+    constructor(size, position, id, img, imgInfo, name, birthday, nationality, profession, info, title, text ) {
       this.size = size;
       this.position = position;
 
       this.id = id;
       this.img = img;
+      this.imgInfo = imgInfo;
       this.name = name;
       this.birthday = birthday;
       this.nationality = nationality;
@@ -28,7 +29,6 @@ class MyWindow {
             `
             position: fixed;
             z-index: 20000;
-            padding: 35px;
             max-width: ${this.size.w}%;
             height: ${this.size.h}px;
             ${posOpt[0]}: ${this.position[posOpt[0]]}%;
@@ -51,15 +51,15 @@ class MyWindow {
         infoBox.innerHTML = 
             `
             <div class="modulWind">
-                <img src="${ this.img }" alt="" class="card__img-mod-wind" onerror="this.onerror=null;this.src='img/image_not_found.jpg';">
+                <img src="${ this.imgInfo }" alt="" class="card__img-mod-wind" onerror="this.onerror=null;this.src='img/image_not_found.jpg';">
             </div>
 
             <div class="modulWind">
-                <h2 class="info-style-title"><b>${this.name}</b></h2>
-                <p class="info-style"><b>Дата народження:</b> ${this.birthday}</p>
-                <p class="info-style"><b>Національність:</b> ${this.nationality}</p>
-                <p class="info-style"><b>Професія:</b> ${this.profession}</p>
-                <p class="info-style"><b>Інформація:</b> ${this.info}</p>
+                <h2 class="info-style-title top"><b>${this.name}</b></h2>
+                <p class="info-style"><span class="info-style-bold">Дата народження:</span> ${this.birthday}</p>
+                <p class="info-style"><span class="info-style-bold">Національність:</span> ${this.nationality}</p>
+                <p class="info-style"><span class="info-style-bold">Професія:</span> ${this.profession}</p>
+                <p class="info-style info-style-bottom"><span class="info-style-bold">Інформація.</span> ${this.info}</p>
             </div>
             `;
 
@@ -138,6 +138,21 @@ class ChapterModal extends MyWindow {
         const { id, title, text } = this;
 
         const infoBox = myWindow.querySelector('.modal-window-info-block');
+
+        infoBox.style.cssText =
+            `
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 100%;
+            height: 100%;
+            text-align: justify;
+            hyphens: auto;
+            background-color: white;
+            padding: 55px;
+            overflow: hidden;
+            overflow-y: scroll;
+            `;
 
         infoBox.innerHTML = `
             <h2 class="info-style-title"><b>${title}</b></h2>

@@ -69,6 +69,10 @@ h3 {
     color: white;
 }
 
+.top {
+    padding-top: 55px;
+}
+
 .active {
     color: $color-j;
 }
@@ -80,7 +84,7 @@ h3 {
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    background-color: rgba(240, 232, 88, 0.555);
+    background-color: rgb(143 122 115 / 57%);
     padding-bottom: 7px;
     cursor: pointer;
     position: fixed;
@@ -105,7 +109,7 @@ h3 {
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    background-color: rgba(240, 232, 88, 0.555);
+    background-color: rgb(143 122 115 / 57%);
     padding-top: 5px;
     cursor: pointer;
     position: fixed;

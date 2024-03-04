@@ -1,13 +1,13 @@
 {
   "boughtPrintedBooks": [
     {
-      "quantityP": 2144,
+      "quantityP": 2147,
       "id": "4699"
     }
   ],
   "boughtEbooks": [
     {
-      "quantityE": 411,
+      "quantityE": 412,
       "id": "0792"
     }
   ],
@@ -43,6 +43,13 @@
       "cardNumber": "1111 1111 1111 1111",
       "expiryDate": "12/25",
       "cvv": "111"
+    },
+    {
+      "id": "b260",
+      "email": "clubfate@gmail.com",
+      "cardNumber": "1111 1111 1111 1111",
+      "expiryDate": "12/33",
+      "cvv": "111"
     }
   ],
   "pbookBuyerData": [
@@ -67,6 +74,7 @@
     {
       "id": "1",
       "img": "img/img1.jpg",
+      "imgInfo": "img/img1-info.jpg",
       "name": "Тек Джон-Рік",
       "birthday": "03.01.1984",
       "nationality": "кореєць",
@@ -76,6 +84,7 @@
     {
       "id": "2",
       "img": "img/img2.jpg",
+      "imgInfo": "img/img2-info.jpg",
       "name": "Тек Ґа Йон",
       "birthday": "01.08.1986",
       "nationality": "кореянка",
@@ -85,6 +94,7 @@
     {
       "id": "3",
       "img": "img/img3.jpg",
+      "imgInfo": "img/img3-info.jpg",
       "name": "Кан Джун Ґі",
       "birthday": "05.09.1984",
       "nationality": "кореєць",
@@ -94,6 +104,7 @@
     {
       "id": "4",
       "img": "img/img4.jpg",
+      "imgInfo": "img/img4-info.jpg",
       "name": "Софія Легранд",
       "birthday": "15.11.1987",
       "nationality": "словенка, француженка",
@@ -103,6 +114,7 @@
     {
       "id": "5",
       "img": "img/img5.jpg",
+      "imgInfo": "img/img5-info.jpg",
       "name": "П’єр Легранд",
       "birthday": "14.02.1982",
       "nationality": "француз",
@@ -112,6 +124,7 @@
     {
       "id": "6",
       "img": "img/img6.jpg",
+      "imgInfo": "img/img6-info.jpg",
       "name": "Сакурада Мацуда",
       "birthday": "25.08.1954",
       "nationality": "японець",
@@ -121,6 +134,7 @@
     {
       "id": "7",
       "img": "img/img7.jpg",
+      "imgInfo": "img/img7-info.jpg",
       "name": "Фуміко Мацуда",
       "birthday": "11.04.1985",
       "nationality": "японка",
@@ -130,6 +144,7 @@
     {
       "id": "8",
       "img": "img/img8.jpg",
+      "imgInfo": "img/img8-info.jpg",
       "name": "Юкі Мацуда",
       "birthday": "10.07.1987",
       "nationality": "японка",
@@ -139,6 +154,7 @@
     {
       "id": "9",
       "img": "img/img9.jpg",
+      "imgInfo": "img/img9-info.jpg",
       "name": "Кім Сан Джон",
       "birthday": "23.04.1965",
       "nationality": "кореєць",
@@ -148,6 +164,7 @@
     {
       "id": "10",
       "img": "img/img10.jpg",
+      "imgInfo": "img/img10-info.jpg",
       "name": "Кім Дже Сан",
       "birthday": "27.02.1967",
       "nationality": "кореєць",
@@ -157,6 +174,7 @@
     {
       "id": "11",
       "img": "img/img11.jpg",
+      "imgInfo": "img/img11-info.jpg",
       "name": "Ямада Сатоші",
       "birthday": "27.12.1955",
       "nationality": "японець",
@@ -166,6 +184,7 @@
     {
       "id": "12",
       "img": "img/img12.jpg",
+      "imgInfo": "img/img12-info.jpg",
       "name": "Ван Ґюрі",
       "birthday": "03.06.1990",
       "nationality": "тайванка",
@@ -175,6 +194,7 @@
     {
       "id": "13",
       "img": "img/img13.jpg",
+      "imgInfo": "img/img13-info.jpg",
       "name": "Доміано Манкузо",
       "birthday": "14.08.1963",
       "nationality": "італієць",
@@ -184,6 +204,7 @@
     {
       "id": "14",
       "img": "img/img14.jpg",
+      "imgInfo": "img/img14-info.jpg",
       "name": "Дон Лі",
       "birthday": "03.11.1984",
       "nationality": "кореєць",
@@ -193,6 +214,7 @@
     {
       "id": "15",
       "img": "img/img15.jpg",
+      "imgInfo": "img/img15-info.jpg",
       "name": "Мінору Іто",
       "birthday": "17.08.1984",
       "nationality": "кореєць",
@@ -231,22 +253,27 @@
     {
       "id": "1",
       "name": "Nana",
-      "text": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Libero rerum atque quibusdam, suscipit minus illum qui est eligendi. Nisi obcaecati, officiis libero ipsam, nihil mollitia rerum temporibus tempora corrupti ullam esse? Molestiae ipsum, nulla eum a delectus aspernatur! Harum illo nam debitis. Libero obcaecati, dolorem est molestiae, eveniet quia sequi exercitationem omnis labore dicta consequuntur perferendis ut adipisci explicabo illum voluptate rerum, quidem ullam. Sed sapiente nulla reprehenderit cupiditate corrupti."
+      "text": "Нарешті ми дізналися про життя Тека. У першому томі він був покритий таємницями. Це інтригувало й хотілося зазирнути за куліси загадки. І ось мрія здійснилася. Дякую за це продовження!"
     },
     {
       "id": "2",
       "name": "Jo",
-      "text": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Facere, eaque!"
+      "text": "Придбав книжку, хоча довго сумнівався. Але не пожалкував. Прочитав із задоволенням. Навіть є бажання перечитати. Успіху автору!"
     },
     {
       "id": "3",
       "name": "Miko",
-      "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis maiores, earum ratione debitis temporibus autem laborum doloribus cupiditate similique at rem voluptatem molestias odio amet labore nostrum unde quis ipsam, nihil quibusdam distinctio nisi. Illo minima veritatis amet obcaecati placeat. Ratione placeat beatae, quae cum alias at ea. Ipsam, eveniet."
+      "text": "Хоча два томи дилогії пов'язані між собою, але вони геть різні і в жанрі, і особливо в атмосфері. 'День і Ніч' читалася як пригодницький роман з купою інтриг. А другий. У мене немає слів, щоб передати всі емоції, настільки їх багато. Деякі глави пронизували до глибини й змушували переживати разом з героями. Сюжет непередбачуваний і місцями настільки напружений, що серце завмирає. Тепер це одна з улюблених книжок. Щиро дякую!"
     },
     {
       "id": "4abc",
       "name": "andrey",
       "text": "Я в захваті від цієї книги. Персонажі так гарно прописані!"
+    },
+    {
+      "id": "73bf",
+      "name": "Лілу",
+      "text": "Зацікавила книжка. Хотілося б прочитати перший том. Де можна купити?"
     }
   ]
 }
