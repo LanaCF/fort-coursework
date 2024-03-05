@@ -26,8 +26,11 @@
 }
 
 .menu-item {
+    @include flex-jc;
+    height: 55px;
     padding: $padding;
     border: 1px solid $color-c;
+    text-align: center;
     font-size: 1.5vw;
     cursor: pointer;
     transition: all .5s;

@@ -9,6 +9,11 @@
 
     .form-input-style {
         width: 25vw;
+        font-size: 1.7vw;
+    }
+
+    input::placeholder {
+        font-size: 1.5vw;
     }
 
     .modal-window-info-block {
@@ -41,6 +46,15 @@
         margin: 15px;
     }
 
+    .form-button-buy {
+        width: 15vw;
+        font-size: 1.7vw;
+    }
+
+    .error-comment-box {
+        font-size: 1.7vw;
+    }
+
     .footer-contacts-text {
         font-size: 1.5vw;
     }
@@ -49,6 +63,10 @@
 @media (max-width: 607px) {
     body {
         font-size: 2.5vw;
+    }
+
+    .menu-item {
+        font-size: 2vw;
     }
 
     .book-info-wrapper,
@@ -64,11 +82,33 @@
 
     .form-input-style {
         width: 35vw;
+        font-size: 2vw;
+    }
+
+    input::placeholder {
+        font-size: 2vw;
+    }
+
+    .form-button-buy {
+        width: 20vw;
+        font-size: 2.5vw;
     }
 
     .ebook-quantity-sold,
     .pbook-quantity-sold {
-        font-size: 35px;
+        font-size: 5vw;
+    }
+
+    .scroll-top {
+        right: 5px;
+    }
+    
+    .scroll-bottom {
+        right: 5px;
+    }
+
+    .error-comment-box {
+        font-size: 2.5vw;
     }
 
     .footer-contacts-text {
@@ -81,11 +121,18 @@
         font-size: 3.5vw;
     }
 
+    .menu-item {
+        font-size: 2.5vw;
+    }
+
+    input::placeholder {
+        font-size: 2.5vw;
+    }
+
     .scroll-top {
         width: 25px;
         height: 25px;
         top: 50px;
-        right: 45px;
     }
 
     .bottomToTop {
@@ -100,7 +147,6 @@
         width: 25px;
         height: 25px;
         bottom: 100px;
-        right: 45px;
     }
 
     .bottomToBottom {
@@ -114,7 +160,21 @@
     }
 
     .payment {
-        width: 95%;
+        width: 100%;
+    }
+
+    .form-button-buy {
+        width: 30vw;
+        font-size: 3.5vw;
+    }
+
+    .form-input-style {
+        width: 35vw;
+        font-size: 3.5vw;
+    }
+
+    .error-comment-box {
+        font-size: 3.5vw;
     }
 
     .footer-contacts-text {

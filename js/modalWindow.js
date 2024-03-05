@@ -149,14 +149,14 @@ class ChapterModal extends MyWindow {
             text-align: justify;
             hyphens: auto;
             background-color: white;
-            padding: 55px;
+            padding: 15px;
             overflow: hidden;
             overflow-y: scroll;
             `;
 
         infoBox.innerHTML = `
             <h2 class="info-style-title"><b>${title}</b></h2>
-            <p>${text}</p>
+            <p class="text-book">${text}</p>
         `;
 
         const overlay = document.createElement('div');

@@ -284,8 +284,19 @@ h3 {
 }
 
 .menu-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 55px;
   padding: 15px;
   border: 1px solid #d7a45c;
+  text-align: center;
   font-size: 1.5vw;
   cursor: pointer;
   -webkit-transition: all 0.5s;
@@ -361,18 +372,24 @@ main {
   padding: 35px 45px;
 }
 
-.ebook-quantity-sold,
-.pbook-quantity-sold {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  font-size: 55px;
+input::-webkit-input-placeholder {
+  font-size: 1vw;
+}
+
+input::-moz-placeholder {
+  font-size: 1vw;
+}
+
+input:-ms-input-placeholder {
+  font-size: 1vw;
+}
+
+input::-ms-input-placeholder {
+  font-size: 1vw;
+}
+
+input::placeholder {
+  font-size: 1vw;
 }
 
 .payment {
@@ -455,6 +472,12 @@ main {
   background-color: #cfac7c;
 }
 
+.book-buy-info {
+  text-align: center;
+  padding-top: 150px;
+  font-weight: bold;
+}
+
 .book-quantity-sold-block {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -466,7 +489,7 @@ main {
       -ms-flex-align: center;
           align-items: center;
   width: 100%;
-  margin-top: 50px;
+  margin-top: 25px;
 }
 
 .delivery-method {
@@ -482,7 +505,8 @@ main {
 }
 
 .number-post {
-  width: 70px;
+  width: 50px;
+  margin-left: 5px;
 }
 
 form input {
@@ -497,6 +521,37 @@ form input {
 
 .form-input-style {
   width: 15vw;
+  font-size: 1vw;
+}
+
+.form-button-buy {
+  width: 10vw;
+  height: 35px;
+  margin-top: 25px;
+  font-size: 1.3vw;
+  color: white;
+  background-color: #0d0701;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.ebook-quantity-sold,
+.pbook-quantity-sold {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 3.5vw;
+  color: #c52c11;
+}
+
+.book-sold {
+  text-align: center;
 }
 
 .book-characters-wrapper {
@@ -576,6 +631,13 @@ form input {
 .card__title {
   color: rgb(49, 49, 49);
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+.text-book {
+  text-align: justify;
+  -webkit-hyphens: auto;
+      -ms-hyphens: auto;
+          hyphens: auto;
 }
 
 .info-style {
@@ -682,7 +744,7 @@ form input {
   background-color: rgba(255, 245, 196, 0.5058823529);
   border-radius: 15px;
   padding: 55px;
-  margin: 35px;
+  margin: 5px;
 }
 
 .user-name {
@@ -703,6 +765,7 @@ form input {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  width: 100%;
   margin: 50px 0 5px;
 }
 
@@ -783,7 +846,7 @@ form input {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  width: 500px;
+  font-size: 1.3vw;
 }
 
 .warning,
@@ -830,6 +893,22 @@ footer {
   }
   .form-input-style {
     width: 25vw;
+    font-size: 1.7vw;
+  }
+  input::-webkit-input-placeholder {
+    font-size: 1.5vw;
+  }
+  input::-moz-placeholder {
+    font-size: 1.5vw;
+  }
+  input:-ms-input-placeholder {
+    font-size: 1.5vw;
+  }
+  input::-ms-input-placeholder {
+    font-size: 1.5vw;
+  }
+  input::placeholder {
+    font-size: 1.5vw;
   }
   .modal-window-info-block {
     display: -webkit-box;
@@ -872,6 +951,13 @@ footer {
     width: 21vw;
     margin: 15px;
   }
+  .form-button-buy {
+    width: 15vw;
+    font-size: 1.7vw;
+  }
+  .error-comment-box {
+    font-size: 1.7vw;
+  }
   .footer-contacts-text {
     font-size: 1.5vw;
   }
@@ -879,6 +965,9 @@ footer {
 @media (max-width: 607px) {
   body {
     font-size: 2.5vw;
+  }
+  .menu-item {
+    font-size: 2vw;
   }
   .book-info-wrapper,
   .book-characters-wrapper,
@@ -891,10 +980,39 @@ footer {
   }
   .form-input-style {
     width: 35vw;
+    font-size: 2vw;
+  }
+  input::-webkit-input-placeholder {
+    font-size: 2vw;
+  }
+  input::-moz-placeholder {
+    font-size: 2vw;
+  }
+  input:-ms-input-placeholder {
+    font-size: 2vw;
+  }
+  input::-ms-input-placeholder {
+    font-size: 2vw;
+  }
+  input::placeholder {
+    font-size: 2vw;
+  }
+  .form-button-buy {
+    width: 20vw;
+    font-size: 2.5vw;
   }
   .ebook-quantity-sold,
   .pbook-quantity-sold {
-    font-size: 35px;
+    font-size: 5vw;
+  }
+  .scroll-top {
+    right: 5px;
+  }
+  .scroll-bottom {
+    right: 5px;
+  }
+  .error-comment-box {
+    font-size: 2.5vw;
   }
   .footer-contacts-text {
     font-size: 2vw;
@@ -904,11 +1022,28 @@ footer {
   body {
     font-size: 3.5vw;
   }
+  .menu-item {
+    font-size: 2.5vw;
+  }
+  input::-webkit-input-placeholder {
+    font-size: 2.5vw;
+  }
+  input::-moz-placeholder {
+    font-size: 2.5vw;
+  }
+  input:-ms-input-placeholder {
+    font-size: 2.5vw;
+  }
+  input::-ms-input-placeholder {
+    font-size: 2.5vw;
+  }
+  input::placeholder {
+    font-size: 2.5vw;
+  }
   .scroll-top {
     width: 25px;
     height: 25px;
     top: 50px;
-    right: 45px;
   }
   .bottomToTop {
     margin: 10px 8px 7px 8px;
@@ -921,7 +1056,6 @@ footer {
     width: 25px;
     height: 25px;
     bottom: 100px;
-    right: 45px;
   }
   .bottomToBottom {
     width: 0;
@@ -933,7 +1067,18 @@ footer {
     border-left: 5px solid transparent;
   }
   .payment {
-    width: 95%;
+    width: 100%;
+  }
+  .form-button-buy {
+    width: 30vw;
+    font-size: 3.5vw;
+  }
+  .form-input-style {
+    width: 35vw;
+    font-size: 3.5vw;
+  }
+  .error-comment-box {
+    font-size: 3.5vw;
   }
   .footer-contacts-text {
     font-size: 3vw;

@@ -389,7 +389,7 @@ async function renderPaymentPrintedBook() {
 
         <div class="error-comment-box">
             <p class="warning-buy warning-card">
-            Будь ласка, вкажіть кількість екземплярів.
+                Поле заповнено некоректно.
             </p>
         </div>
 
@@ -400,7 +400,7 @@ async function renderPaymentPrintedBook() {
 
         <div class="error-comment-box">
             <p class="warning-buy warning-term">
-            Будь ласка, вкажіть кількість екземплярів.
+                Поле заповнено некоректно.
             </p>
         </div>
 
@@ -411,7 +411,7 @@ async function renderPaymentPrintedBook() {
 
         <div class="error-comment-box">
             <p class="warning-buy warning-cvv">
-            Будь ласка, вкажіть кількість екземплярів.
+                Поле заповнено некоректно.
             </p>
         </div>
 
