@@ -350,7 +350,7 @@ main {
   width: 25vw;
   height: 30vw;
   margin: 0 3vw 0 0;
-  background-image: url("/img/1.jpg");
+  background-image: url("./../img/1.jpg");
   background-size: contain;
   background-repeat: no-repeat;
   overflow: hidden;
@@ -359,7 +359,7 @@ main {
   transition: 0.3s;
 }
 .book-poster:hover {
-  background-image: url("/img/2.jpg");
+  background-image: url("./../img/2.jpg");
 }
 
 .book-info-block {
@@ -440,36 +440,6 @@ input::placeholder {
 .book_type_selection input[type=radio]:checked {
   background-color: #0d0701;
   border-color: #ffffff;
-}
-
-.book-buy__block {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-.book-buy__box {
-  border: 3px solid #0d0701;
-  border-radius: 15px;
-  padding: 15px;
-}
-.book-buy__button {
-  font-size: 1.5vw;
-  background-color: #d7a45c;
-  padding: 15px;
-  margin: 0 15px 35px;
-  border-radius: 5px;
-  cursor: pointer;
-  -webkit-transition: all 0.5s;
-  transition: all 0.5s;
-}
-.book-buy:hover {
-  background-color: #cfac7c;
 }
 
 .book-buy-info {
@@ -695,6 +665,10 @@ form input {
   align-items: center;
   width: 100%;
   height: auto;
+}
+
+.read-book__text {
+  cursor: pointer;
 }
 
 ::-webkit-scrollbar {
